@@ -1,7 +1,5 @@
 <!-- _coverpage.md -->
 
-# docsify <small>3.5</small>
-
-> CMDB接口文档
+#  CMDB接口文档 <small>V6.1.2</small>
 
 [Get Started](/api/ "CMDB接口文档")
