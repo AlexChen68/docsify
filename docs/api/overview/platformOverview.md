@@ -6,7 +6,7 @@
 
 **请求URL**
 
-- ` /oss-view/overview/viewplatform/list`
+- ` /oss-monitor/overview/viewplatform/list`
 
 **请求方式**
 
@@ -19,7 +19,7 @@
 **请求示例**
 
 ``` http
-/oss-view/overview/viewplatform/list
+/oss-monitor/overview/viewplatform/list
 ```
 
 **返回示例**
@@ -56,7 +56,7 @@
 
 **请求URL**
 
--  `/oss-view/overview/sla`
+-  `/oss-monitor/overview/sla`
 
 **请求方式**
 
@@ -77,7 +77,7 @@
 **请求示例**
 
 ```http
-/oss-view/overview/sla?cloudPlatformId=xxx
+/oss-monitor/overview/sla?cloudPlatformId=xxx
 ```
 
 **返回参数说明**
@@ -119,7 +119,7 @@
 **请求URL**
 
 ```http
-/oss-view/overview/metrics
+/oss-monitor/overview/metrics
 ```
 
 **请求方式**
@@ -134,7 +134,7 @@
 **请求示例**
 
 ```http
-http://ip:port/oss-view/overview/metrics?cloudPlatformId=xxx
+http://ip:port/oss-monitor/overview/metrics?cloudPlatformId=xxx
 ```
 
 **返回示例**

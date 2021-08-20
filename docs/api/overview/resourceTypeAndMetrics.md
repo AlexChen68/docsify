@@ -6,7 +6,7 @@
 
 **请求URL**
 
-- ` /oss-view/overview/resource/type/list`
+- ` /oss-monitor/overview/resource/type/list`
 
 **请求方式**
 - GET
@@ -18,7 +18,7 @@
 **请求示例**
 
 ``` http
-/oss-view/overview/resource/type/list
+/oss-monitor/overview/resource/type/list
 ```
 
 **返回示例**
@@ -67,7 +67,7 @@
 
 **请求URL**
 
-- ` /oss-view/overview/resource/column/list`
+- ` /oss-monitor/overview/resource/column/list`
 
 **请求方式**
 
@@ -82,7 +82,7 @@
 **请求示例**
 
 ``` http
-/oss-view/overview/resource/column/list?modelCode=point_ecs
+/oss-monitor/overview/resource/column/list?modelCode=point_ecs
 ```
 
 **返回示例**

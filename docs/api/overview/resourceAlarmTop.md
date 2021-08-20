@@ -6,7 +6,7 @@
 **请求URL**
 
 ```http
-/oss-view/overview/resource/alarm/rank
+/oss-monitor/overview/resource/alarm/rank
 ```
 
 **请求方式**
@@ -24,7 +24,7 @@
 **请求示例**
 
 ```http
-http://ip:port/oss-view/overview/resource/alarm/rank?resourceCode=point_ecs&startTime=1629388800000&size=10
+http://ip:port/oss-monitor/overview/resource/alarm/rank?resourceCode=point_ecs&startTime=1629388800000&size=10
 ```
 
 **返回示例**

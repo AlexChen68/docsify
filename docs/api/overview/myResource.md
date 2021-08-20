@@ -6,7 +6,7 @@
 
 **请求URL**
 
-- ` /oss-view/overview/my-resource`
+- ` /oss-monitor/overview/my-resource`
 
 **请求方式**
 
@@ -18,7 +18,7 @@
 
 **请求示例**
 
-> http://ip:port/oss-view/overview/my-resource
+> http://ip:port/oss-monitor/overview/my-resource
 
 **返回示例**
 

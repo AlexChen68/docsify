@@ -4,7 +4,7 @@
 
 **请求URL**
 
-- `/oss-view/overview/alarm/summary`
+- `/oss-monitor/overview/alarm/summary`
 
 **请求方式**
 
@@ -23,7 +23,7 @@
 **请求示例**
 
 ```http
-/oss-view/overview/alarm/summary
+/oss-monitor/overview/alarm/summary
 ```
 
 **返回参数说明**

@@ -4,7 +4,7 @@
 
 **请求URL**
 
-- `/oss-view/overview/resource/summary`
+- `/oss-monitor/overview/resource/summary`
 
 **请求方式**
 
@@ -25,7 +25,7 @@
 **请求示例**
 
 ```http
-/oss-view/overview/resource/summary?cloudPlatformId=xxx
+/oss-monitor/overview/resource/summary?cloudPlatformId=xxx
 ```
 
 **返回参数说明**
