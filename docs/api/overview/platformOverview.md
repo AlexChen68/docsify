@@ -30,23 +30,42 @@
     "msg": null,
     "data": [
         {
-            "platformCode": "point_inspur_cloud",
-            "platformName": "浪潮云平台"
+            "platformType": "OpenStack",
+            "platformList": [
+                {
+                    "platformUuid": "1429692502677024769",
+                    "platformName": "OpenStack平台001"
+                },
+                {
+                    "platformUuid": "1429696427606044673",
+                    "platformName": "OpenStack平台002"
+                }
+            ]
+        },
+        {
+            "platformType": "VMware",
+            "platformList": [
+                {
+                    "platformUuid": "1429692502677029102",
+                    "platformName": "VMware平台001"
+                }
+            ]
         }
     ]
 }
-
 ```
 
 **返回参数说明**
 
 | 参数名称           | 参数说明                         | 类型           |
 | ------------------ | -------------------------------- | -------------- |
-| code               | 返回标记：成功标记=0，失败标记=1 | integer(int32) |
-| msg                | 返回信息                         | string         |
-| data               | 云平台实例的数据                 | object         |
-| &emsp;platformCode | 云平台编码                       | String         |
-| &emsp;platformName | 云平台名称                       | String         |
+| code               | 返回标记：成功标记=0，失败标记=1  | integer(int32) |
+| msg                | 返回信息                      | string         |
+| data               | 云平台实例的数据                | object         |
+| &emsp;platformType | 云平台类型名称                  | string         |
+| &emsp;platformList | 类型下的云平台                  | array         |
+| &emsp;&emsp;platformUuid | 云平台编码                  | string         |
+| &emsp;&emsp;platformName | 云平台名称                  | string         |
 
 ### 云平台年度SLA接口（7）
 

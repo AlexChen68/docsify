@@ -16,4 +16,4 @@
 
 ## 接口分解
 
-<img src="http://120.79.174.242:9000/halo/oss-overview_1629789945659.jpg"></img>
+<img src="http://120.79.174.242:9000/halo/oss-overview_1629789945659.jpg" border="2"/>

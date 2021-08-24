@@ -16,8 +16,8 @@
 
 | 参数名 | 参数位置 | 必选 | 类型 | 说明 |
 | ------ | -------- | ---- | ---- | ---- |
-|    resourceCode    |      query    |    是  |   string   |   资源类型编码，例如"point_ecs"   |
-|    metricsCode    |      query    |    是  |   string   |   资源指标编码，例如"cpu_usage"   |
+|    modelCode    |      query    |    是  |   string   |   资源类型编码，例如"point_ecs"   |
+|    columnCode    |      query    |    是  |   string   |   资源指标编码，例如"cpu_usage"   |
 |    startTime    |      query    |    是  |   long   |   查询开始时间，格式为13位时间戳，查询的范围为开始时间到结束时间   |
 |    endTime    |      query    |    否  |   long   |   查询结束时间，格式为13位时间戳，为空时默认取请求时间  |
 |    size    |      query    |    否  |   integer   |   返回数据量限制，默认不限制   |
@@ -25,7 +25,7 @@
 **请求示例**
 
 ```http
-http://ip:port/oss-monitor/overview/resource/metrics/rank?resourceCode=point_ecs&metricsCode=cpu_usage&startTime=1629388800000&size=10
+http://ip:port/oss-monitor/overview/resource/metrics/rank?modelCode=point_ecs&columnCode=cpu_usage&startTime=1629388800000&size=10
 ```
 
 **返回示例**
@@ -38,12 +38,12 @@ http://ip:port/oss-monitor/overview/resource/metrics/rank?resourceCode=point_ecs
         {
             "uuid": "15678946164815654",
             "objectName": "云服务器1",
-            "metricsValue": 0.88 
+            "value": 0.88 
         },
         {
             "uuid": "15678946135465367",
             "objectName": "云服务器2",
-            "metricsValue": 0.81
+            "value": 0.81
         }
     ]
 }
@@ -58,4 +58,4 @@ http://ip:port/oss-monitor/overview/resource/metrics/rank?resourceCode=point_ecs
 | data     | 数据        | array         |
 | &emsp;uuid     | 实例uuid        | string         |
 | &emsp;objectName     | 实例名称       | string         |
-| &emsp;metricsValue     | 指标值        | string         |
+| &emsp;value     | 指标值        | string         |
