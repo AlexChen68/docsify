@@ -6,7 +6,7 @@
 
 **请求URL**
 
-- ` /oss-monitor/overview/viewplatform/list`
+- ` /oss-monitor/config/overview/platforms`
 
 **请求方式**
 
@@ -19,7 +19,7 @@
 **请求示例**
 
 ``` http
-/oss-monitor/overview/viewplatform/list
+/oss-monitor/config/overview/platforms
 ```
 
 **返回示例**

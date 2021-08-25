@@ -6,7 +6,7 @@
 
 **请求URL**
 
-- ` /oss-monitor/overview/resource/type/list`
+- `/oss-monitor/config/overview/models`
 
 **请求方式**
 - GET
@@ -18,7 +18,7 @@
 **请求示例**
 
 ``` http
-/oss-monitor/overview/resource/type/list
+/oss-monitor/config/overview/models
 ```
 
 **返回示例**
@@ -67,7 +67,7 @@
 
 **请求URL**
 
-- ` /oss-monitor/overview/resource/column/list`
+- ` /oss-monitor/config/overview/columns`
 
 **请求方式**
 
@@ -77,12 +77,13 @@
 
 | 参数名       | 参数位置 | 必选 | 类型   | 说明     |
 | ------------ | -------- | ---- | ------ | -------- |
+| configCode | query    | 是   | String | 配置分组，oss概览页使用"oss-overview" |
 | modelCode | query    | 是   | String | 资源类型编码 |
 
 **请求示例**
 
 ``` http
-/oss-monitor/overview/resource/column/list?modelCode=point_ecs
+/oss-monitor/config/overview/columns?configCode=oss-overview&modelCode=point_ecs
 ```
 
 **返回示例**
