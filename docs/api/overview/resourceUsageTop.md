@@ -18,7 +18,7 @@
 | ------ | -------- | ---- | ---- | ---- |
 |    modelCode    |      query    |    是  |   string   |   资源类型编码，例如"point_ecs"   |
 |    columnCode    |      query    |    是  |   string   |   资源指标编码，例如"cpu_usage"   |
-|    startTime    |      query    |    是  |   long   |   查询开始时间，格式为13位时间戳，查询的范围为开始时间到结束时间   |
+|    startTime    |      query    |    否  |   long   |   查询开始时间，格式为13位时间戳，查询的范围为开始时间到结束时间   |
 |    endTime    |      query    |    否  |   long   |   查询结束时间，格式为13位时间戳，为空时默认取请求时间  |
 |    size    |      query    |    否  |   integer   |   返回数据量限制，默认不限制   |
 

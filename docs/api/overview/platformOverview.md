@@ -34,11 +34,13 @@
             "platformList": [
                 {
                     "platformUuid": "1429692502677024769",
-                    "platformName": "OpenStack平台001"
+                    "platformName": "OpenStack平台001",
+                    "platformTypeId": "point_openstack"
                 },
                 {
                     "platformUuid": "1429696427606044673",
-                    "platformName": "OpenStack平台002"
+                    "platformName": "OpenStack平台002",
+                    "platformTypeId": "point_openstack"
                 }
             ]
         },
@@ -47,7 +49,8 @@
             "platformList": [
                 {
                     "platformUuid": "1429692502677029102",
-                    "platformName": "VMware平台001"
+                    "platformName": "VMware平台001",
+                    "platformTypeId": "point_vmware"
                 }
             ]
         }
@@ -66,6 +69,7 @@
 | &emsp;platformList | 类型下的云平台                  | array         |
 | &emsp;&emsp;platformUuid | 云平台编码                  | string         |
 | &emsp;&emsp;platformName | 云平台名称                  | string         |
+| &emsp;&emsp;platformTypeId | 云平台类型编码              | string         |
 
 ### 云平台年度SLA接口（7）
 
@@ -147,8 +151,9 @@
 **请求参数**
 
 |参数名|必选|参数位置|类型|说明|
-|---------------------|----|----|-------|--------------------------------------------|
-|cloudPlatformId|是|query|string|所属平台|
+|---------------------|----|----|-------|-----------|
+|platformId|是|query|string|所属平台id，取自接口6的`platformUuid`|
+|platformTypeId|是|query|string|所属平台类型id，取自接口6的`platformTypeId`，例如"point_openstack"|
 
 **请求示例**
 

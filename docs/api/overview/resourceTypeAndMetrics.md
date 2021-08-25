@@ -13,12 +13,14 @@
 
 **请求参数**
 
-无
+| 参数名       | 参数位置 | 必选 | 类型   | 说明     |
+| ------------ | -------- | ---- | ------ | -------- |
+| configCode | query    | 是   | String | 配置分组，oss概览页使用"oss-overview" |
 
 **请求示例**
 
 ``` http
-/oss-monitor/config/overview/models
+/oss-monitor/config/overview/models?configCode=oss-overview
 ```
 
 **返回示例**
