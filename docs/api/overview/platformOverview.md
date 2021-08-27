@@ -209,7 +209,7 @@ http://ip:port/oss-monitor/overview/metrics?cloudPlatformId=xxx
 
 **请求URL**
 
-- `/oss-view/overview/alarm/count`
+- `/oss-monitor/overview/alarm/count`
 
 **请求方式**
 
@@ -230,7 +230,7 @@ http://ip:port/oss-monitor/overview/metrics?cloudPlatformId=xxx
 **请求示例**
 
 ```http
-/oss-view/overview/alarm/count?cloudPlatformId=xxx
+/oss-monitor/overview/alarm/count?cloudPlatformId=xxx
 ```
 
 **返回参数说明**
