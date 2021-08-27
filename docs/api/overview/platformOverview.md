@@ -201,3 +201,55 @@ http://ip:port/oss-monitor/overview/metrics?cloudPlatformId=xxx
 | &emsp;&emsp;diskUsage          | 存储利用率                        | double         |
 | &emsp;&emsp;diskAllocationRate | 存储分配率                        | double         |
 
+### 告警数量接口
+
+**接口描述**
+
+> 根据当前用户权限信息，获取所能查看的资源实例中，各个资源的告警数量之和
+
+**请求URL**
+
+- `/oss-view/overview/alarm/count`
+
+**请求方式**
+
+- `Get`
+
+**head参数**
+
+| 参数名称     | 必选 | 类型   | 默认值           |
+| ------------ | ---- | ------ | ---------------- |
+| Content-Type | 是   | string | application/json |
+
+**请求参数**
+
+| 参数名          | 必选 | in    | 类型   | 说明     |
+| --------------- | ---- | ----- | ------ | -------- |
+| cloudPlatformId | 否   | query | string | 所属平台 |
+
+**请求示例**
+
+```http
+/oss-view/overview/alarm/count?cloudPlatformId=xxx
+```
+
+**返回参数说明**
+
+| 节点                     | 类型      | 描述             |
+| ------------------------ | --------- | ---------------- |
+| msg                      | string    | 操作返回信息     |
+| code                     | int     | 成功1 ；失败0    |
+| data                     | Object    | 返回数据信息结果 |
+| &emsp;alarmNum     | int       | 告警个数      |
+
+**返回示例**
+
+```json
+{
+    "code": 0,
+    "msg": null,
+    "data": {
+        "alarmNum": 0
+    }
+}
+```
