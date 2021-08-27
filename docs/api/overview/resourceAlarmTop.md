@@ -55,3 +55,6 @@ http://ip:port/oss-monitor/overview/resource/alarm/rank?modelCode=point_ecs&star
 | code     | 返回标记：成功标记=0，失败标记非0 | integer(int32) |
 | msg      | 返回信息                          | string         |
 | data     | 数据        | object         |
+| &emsp;uuid     | 资源uuid     | string         |
+| &emsp;objectName| 资源名称     | string         |
+| &emsp;alarmNum     | 告警数    | string         |
