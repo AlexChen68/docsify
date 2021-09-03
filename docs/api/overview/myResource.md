@@ -33,11 +33,11 @@
         },
         "metrics": {
             "cpuTotal": 40,
-            "cpuAllocationRate": 0.14,
+            "cpuAssignPercent": 0.14,
             "memTotal": 80,
-            "memAllocationRate": 0.10,
-            "diskTotal": 1000,
-            "diskAllocationRate": 0.25
+            "memAssignPercent": 0.10,
+            "storageTotal": 1000,
+            "storageAssignPercent": 0.25
         }
     }
 }
@@ -55,10 +55,10 @@
 | &emsp;&emsp;alarmNum           | 告警云平台数量                    | integer |
 | &emsp;metrics                  | 指标信息                          | object  |
 | &emsp;&emsp;cpuTotal           | cpu总核数                         | integer  |
-| &emsp;&emsp;cpuAllocationRate  | cpu分配率                         | double  |
+| &emsp;&emsp;cpuAssignPercent  | cpu分配率                         | double  |
 | &emsp;&emsp;memTotal           | 总内存                            | double  |
-| &emsp;&emsp;memAllocationRate  | 内存分配率                        | double  |
-| &emsp;&emsp;diskTotal          | 存储总量                          | double  |
-| &emsp;&emsp;diskAllocationRate | 存储分配率                        | double  |
+| &emsp;&emsp;memAssignPercent  | 内存分配率                        | double  |
+| &emsp;&emsp;storageTotal          | 存储总量                          | double  |
+| &emsp;&emsp;storageAssignPercent | 存储分配率                        | double  |
 
 

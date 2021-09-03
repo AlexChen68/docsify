@@ -170,14 +170,14 @@ http://ip:port/oss-monitor/overview/metrics?cloudPlatformId=xxx
     "data": {
         "metrics": {
             "cpuTotal": 40,
-            "cpuAllocationRate": 0.14,
+            "cpuAssignPercent": 0.14,
             "cpuUsage": 0.40,
             "memTotal": 80,
-            "memAllocationRate": 0.10,
+            "memAssignPercent": 0.10,
             "memUsage": 0.20,
-            "diskTotal": 1000,
-            "diskAllocationRate": 0.25,
-            "diskUsage": 0.25
+            "storageTotal": 1000,
+            "storageAssignPercent": 0.25,
+            "storageUsage": 0.25
         }
     }
 }
@@ -193,13 +193,13 @@ http://ip:port/oss-monitor/overview/metrics?cloudPlatformId=xxx
 | &emsp;metrics                  | 指标信息                          | object         |
 | &emsp;&emsp;cpuTotal           | cpu总核数                         | integer        |
 | &emsp;&emsp;cpuUsage           | cpu利用率                         | double         |
-| &emsp;&emsp;cpuAllocationRate  | cpu分配率                         | double         |
+| &emsp;&emsp;cpuAssignPercent  | cpu分配率                         | double         |
 | &emsp;&emsp;memTotal           | 总内存                            | double         |
 | &emsp;&emsp;memUsage           | 内存利用率                        | double         |
-| &emsp;&emsp;memAllocationRate  | 内存分配率                        | double         |
-| &emsp;&emsp;diskTotal          | 存储总量                          | double         |
-| &emsp;&emsp;diskUsage          | 存储利用率                        | double         |
-| &emsp;&emsp;diskAllocationRate | 存储分配率                        | double         |
+| &emsp;&emsp;memAssignPercent  | 内存分配率                        | double         |
+| &emsp;&emsp;storageTotal          | 存储总量                          | double         |
+| &emsp;&emsp;storageUsage          | 存储利用率                        | double         |
+| &emsp;&emsp;storageAssignPercent | 存储分配率                        | double         |
 
 ### 告警数量接口
 
