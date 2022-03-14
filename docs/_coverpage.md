@@ -1,5 +1,8 @@
-<!-- _coverpage.md -->
+[comment]: <> (封面)
 
-#  CMDB接口文档 <small>V6.1.2</small>
+## [AlexChen](/blog)
 
-[Get Started](/api/ "CMDB接口文档")
+> You are only young once!
+
+[GitHub](https://github.com/AlexChen68/docsify)
+[开始阅读](README.md)

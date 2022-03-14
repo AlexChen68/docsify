@@ -1,6 +1,15 @@
 <!-- 导航栏配置 -->
 
 * [首页](/)
-* [接口](/)
-    * [资源数据接口](api/data/resources.md "资源数据接口")
-    * [性能数据接口](api/data/performance.md "性能数据接口")
+* [导航](/README)
+* [Java系列](/blog/java)
+    * [Java基础](/blog/java/basic)
+    * [Java集合](/blog/java/collection)
+    * [JUC](/blog/java/juc)
+    * [Spring](/blog/java/spring)
+    * [SpringBoot](/blog/java/springboot)
+    * [SpringCloud](/blog/java/springcloud)
+* [设计模式](/blog/design)
+* [数据结构与算法](/blog/algo)
+* [计算机与操作系统](/blog/c&os)
+    * [Linux](/blog/c&os/linux)
