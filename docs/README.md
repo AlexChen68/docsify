@@ -21,3 +21,6 @@
 # Linux
 
 # 数据库
+
+* [关系型数据库](/blog/database/relational)
+* [非关系型数据库](/blog/database/nosql)
