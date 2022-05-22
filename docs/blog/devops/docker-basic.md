@@ -138,7 +138,7 @@ docker.io/library/ubuntu:18.04 #完整镜像名称
 
 ### 使用镜像
 
-有了基础镜像之后，可以通过 `docker run`命令基于镜像启动容器，当启动容器时，如果本地不存在该镜像，Docker 还会先从镜像仓库下载该镜像，然后再启动容器，具体的容器相关见 [Docker 容器](#Docker-Container)。
+有了基础镜像之后，可以通过 `docker run`命令基于镜像启动容器，当启动容器时，如果本地不存在该镜像，Docker 还会先从镜像仓库下载该镜像，然后再启动容器，具体的容器相关见 [Docker容器](#Docker-容器)。
 
 ### 查看镜像
 
@@ -199,15 +199,9 @@ docker commit [选项] <容器ID或容器名> [<仓库名>[:<标签>]]
 >
 > Dockerfile 是一个文本文件，其内包含了一条条的 **指令(Instruction)**，每一条指令构建一层，因此每一条指令的内容，就是描述该层应当如何构建。
 
-
-
-## <span id="Docker-Container">Docker 容器</span>
-
-
+## Docker 容器
 
 ## Docker 仓库
-
-
 
 ## 参考资料
 

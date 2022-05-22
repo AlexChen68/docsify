@@ -1,26 +1,17 @@
 [comment]: <> (导航页)
 
-# Java系列
+<!-- tabs:start -->
 
-* [Java基础](/blog/java/basic)
-* [Java集合](/blog/java/collection)
-* [JUC](/blog/java/juc)
-* [Spring](/blog/java/spring)
-* [SpringBoot](/blog/java/springboot)
-* [SpringCloud](/blog/java/springcloud)
+#### **Java**
 
-# 设计模式
-* [创建型模式](/blog/design/creational)
-* [结构型模式](/blog/design/structural)
-* [行为型模式](/blog/design/behavioural)
+TODO
 
-# 数据结构与算法 
+#### **数据结构与算法**
 
-# Spring全家桶
+TODO
 
-# Linux
+#### **设计模式**
 
-# 数据库
+TODO
 
-* [关系型数据库](/blog/database/relational)
-* [非关系型数据库](/blog/database/nosql)
+<!-- tabs:end -->
