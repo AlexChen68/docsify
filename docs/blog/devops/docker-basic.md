@@ -1,5 +1,3 @@
-## Docker 基础
-
 > 从 2017 年 3 月开始 docker 在原来的基础上分为两个分支版本: Docker CE 和 Docker EE：Docker CE 即社区免费版；Docker EE 即企业版，强调安全，但需付费使用；按照官网上 Docker Engine - Community 包现在就是叫做 Docker CE。
 
 ### Docker 架构
