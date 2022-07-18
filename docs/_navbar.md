@@ -12,4 +12,4 @@
 
 * [设计模式](/blog/design/principle)
 
-* [开发工具](/blog/devops/git)
+* [开发工具](/blog/devops/linux)

@@ -8,6 +8,8 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+<!--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">-->
+
 </head>
 <body>
   <div id="app">正在努力加载中</div>
@@ -20,47 +22,41 @@
       themeColor: '#3F51B5',
       nameLink: '/',//点击文档标题后跳转的链接地址
       // repo: 'AlexChen68',
-      // hideSidebar: false,
       loadSidebar: true,
-      // autoHeader: true,
       loadNavbar: true,//加载自定义导航栏
       subMaxLevel: 4,//生成目录的最大层级
-      // mergeNavbar: true,
       auto2top: true,//切换页面后是否自动跳转到页面顶部
       search: 'auto',
       notFoundPage: '/config/404.md',
-      // count:{
-      //   countable:true,
-      //   fontsize:'0.9em',
-      //   color:'rgb(90,90,90)',
-      //   language:'chinese'
-      // },
       tabs: {
-        persist    : true,      // default
-        sync       : true,      // default
-        theme      : 'classic', // default
-        tabComments: true,      // default
-        tabHeadings: true       // default
-      }
+        persist    : true,
+        sync       : true,
+        theme      : 'classic',
+        tabComments: true,
+        tabHeadings: true
+      },
+      // themeable: {
+      //   readyTransition : true, // default
+      //   responsiveTables: true  // default
+      // }
     }
 
   </script>
-  <!-- Docsify v4 -->
-<!--  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>-->
+  <!-- Docsify4.12.2 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify@4.12.2/lib/docsify.min.js"></script>
-<!--  <script src="/js/docsify.js"></script>-->
-  <!--搜索插件-->
+  <!-- 搜索插件 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  <!--分页插件-->
+  <!-- 分页插件 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
   <!-- 选项卡插件 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
   <!-- 语法高亮插件 -->
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-java.min.js"></script>
-  <!--  在所有的代码块上添加一个简单的Click to copy按钮来允许用户从你的文档中轻易地复制代码-->
+  <!-- 代码复制插件 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
   <!-- 回到顶部按钮 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-scroll-to-top@1.0.2/dist/docsify-scroll-to-top.min.js"></script>
-
+  <!-- docsify-themeable (latest v0.x.x) -->
+<!--  <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>-->
 </body>
 </html>
