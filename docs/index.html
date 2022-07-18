@@ -3,42 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <title>AlexChen's Blog</title>
-  <link rel="icon" href="icon/vue.jpeg" sizes="32x32">
+  <link rel="icon" href="images/icon/technology.svg" sizes="32x32">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
 </head>
 <body>
-  <div id="app">加载中</div>
+  <div id="app">正在努力加载中</div>
   <script>
     window.$docsify = {
-      //文档标题，会显示在侧边栏顶部
-      name: '<h3>AlexChen</h3>',
-      //点击文档标题后跳转的链接地址
-      nameLink: '/',
-      //配置仓库地址或者 username/repo 的字符串，会在页面右上角渲染一个 GitHub Corner 挂件
+      name: '<h3>Zeus</h3>',//文档标题，会显示在侧边栏顶部
+      coverpage: false, //是否开启封面
+      // onlyCover: true,//只在访问主页时加载封面
+      homepage: 'home.md',
+      themeColor: '#3F51B5',
+      nameLink: '/',//点击文档标题后跳转的链接地址
       // repo: 'AlexChen68',
-      //加载自定义侧边栏
-      // loadSidebar: true,
-      //同时设置 loadSidebar 和 autoHeader 后，可以根据 _sidebar.md 的内容自动为每个页面增加标题
+      // hideSidebar: false,
+      loadSidebar: true,
       // autoHeader: true,
-      //加载自定义导航栏
-      loadNavbar: true,
-      //生成目录的最大层级
-      subMaxLevel: 4,
-      //是否开启封面
-      coverpage: true,
-      //只在访问主页时加载封面
-      // onlyCover: true,
-      //切换页面后是否自动跳转到页面顶部
-      auto2top: true,
-      //小屏设备下合并导航栏到侧边栏
+      loadNavbar: true,//加载自定义导航栏
+      subMaxLevel: 4,//生成目录的最大层级
       // mergeNavbar: true,
+      auto2top: true,//切换页面后是否自动跳转到页面顶部
       search: 'auto',
-      //定义404页面
       notFoundPage: '/config/404.md',
-      //字数统计
       // count:{
       //   countable:true,
       //   fontsize:'0.9em',
@@ -56,7 +46,9 @@
 
   </script>
   <!-- Docsify v4 -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
+<!--  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>-->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4.12.2/lib/docsify.min.js"></script>
+<!--  <script src="/js/docsify.js"></script>-->
   <!--搜索插件-->
   <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <!--分页插件-->
@@ -67,6 +59,8 @@
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-java.min.js"></script>
   <!--  在所有的代码块上添加一个简单的Click to copy按钮来允许用户从你的文档中轻易地复制代码-->
   <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  <!-- 回到顶部按钮 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-scroll-to-top@1.0.2/dist/docsify-scroll-to-top.min.js"></script>
 
 </body>
 </html>
