@@ -56,7 +56,7 @@ Docker Registry 公开服务是开放给用户使用、允许用户管理镜像�
 - ustc 的镜像：https://docker.mirrors.ustc.edu.cn
 - daocloud：https://www.daocloud.io/mirror#accelerator-doc（注册后使用）
 
-当然了，在内部项目中，还可以自己搭建私有的 Docker Registry 服务，官方提供了 [Docker Registr](https://hub.docker.com/_/registry/) 镜像。
+当然了，在内部项目中，还可以自己搭建私有的 Docker Registry 服务，官方提供了 [Docker Register](https://hub.docker.com/_/registry/) 镜像。
 
 ### Docker 安装
 

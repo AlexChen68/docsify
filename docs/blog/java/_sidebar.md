@@ -1,9 +1,8 @@
-* [Java基础语法](/blog/java/basic)
+* [Java基础语法](basic/overview)
+* [Java集合框架](collection/overview)
 
-* [Java集合框架](/blog/java/collection)
+[//]: # (* [Java并发框架]&#40;juc&#41;)
 
-* [Java并发框架](/blog/java/juc)
+[//]: # (* [JavaIO框架]&#40;io&#41;)
 
-* [JavaIO框架](/blog/java/io)
-
-* [Java新版本特性](/blog/java/jdk)
+[//]: # (* [Java新版本特性]&#40;jdk&#41;)

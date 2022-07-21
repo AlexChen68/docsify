@@ -1,5 +1,3 @@
-* [Spring FrameWork](/blog/spring/spring)
-
-* [SpringBoot](/blog/spring/springboot)
-
-* [SpringCloud](/blog/spring/springcloud)
+* [Spring框架](spring)
+* [SpringBoot](springboot)
+* [SpringCloud](springcloud)

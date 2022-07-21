@@ -2,7 +2,7 @@
 
 * [首页](/home)
 
-* [Java系列](/blog/java/basic)
+* [Java系列](/blog/java/overview)
 
 * [Spring系列](/blog/spring/spring)
 
@@ -13,3 +13,5 @@
 * [设计模式](/blog/design/principle)
 
 * [开发工具](/blog/devops/linux)
+
+* [生活](/blog/life/poetry/我相信)
