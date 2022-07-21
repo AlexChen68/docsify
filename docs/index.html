@@ -8,26 +8,28 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-<!--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">-->
-
 </head>
 <body>
   <div id="app">正在努力加载中</div>
   <script>
     window.$docsify = {
-      // name: '<h3>Zeus</h3>',//文档标题，会显示在侧边栏顶部
-      coverpage: false, //是否开启封面
-      // onlyCover: true,//只在访问主页时加载封面
+      // name: '<img src="/images/icon/technology.svg">',//文档标题，会显示在侧边栏顶部
+      // coverpage: false, //是否开启封面
       homepage: 'home.md',
       themeColor: '#3F51B5',
       nameLink: '/',//点击文档标题后跳转的链接地址
       // repo: 'AlexChen68',
       loadSidebar: true,
+      // hideSidebar: true,
+      subMaxLevel: 3,//生成目录的最大层级
+      autoHeader: false,
       loadNavbar: true,//加载自定义导航栏
-      subMaxLevel: 4,//生成目录的最大层级
       auto2top: true,//切换页面后是否自动跳转到页面顶部
+      topMargin: 20,
       search: 'auto',
-      notFoundPage: '/config/404.md',
+      relativePath: true,//启用相对路径
+      notFoundPage: true,
+      executeScript: true,//执行文档里的 script 标签里的脚本，只执行第一个 script
       tabs: {
         persist    : true,
         sync       : true,
@@ -35,12 +37,47 @@
         tabComments: true,
         tabHeadings: true
       },
-      // themeable: {
-      //   readyTransition : true, // default
-      //   responsiveTables: true  // default
-      // }
+      copyCode: {
+        buttonText : '复制至剪切板',
+        errorText  : '复制错误',
+        successText: '复制成功'
+      },
+      scrollToTop: {
+        auto: true,
+        icon: 'arrow-up-2',
+        right: 15,
+        bottom: 15,
+        width: 45,
+        height: 45,
+        offset: 500
+      },
+      //页脚配置
+      customFooter: {
+        visible: false,
+        textLinks: [
+          {
+            tagType: 'a',
+            text: '未备案',
+            link: 'https://beian.miit.gov.cn/',
+            style: {
+              color: 'green'
+            }
+          },
+          {
+            tagType: 'a',
+            text: 'Copyright@AlexChen',
+            link: 'https://www.alexchen.tech',
+            style: {
+              color: 'green'
+            }
+          },
+          {
+            tagType: 'text',
+            text: '©2022/07/19'
+          }
+        ]
+      }
     }
-
   </script>
   <!-- Docsify4.12.2 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify@4.12.2/lib/docsify.min.js"></script>
@@ -52,11 +89,13 @@
   <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
   <!-- 语法高亮插件 -->
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-java.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
   <!-- 代码复制插件 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
-  <!-- 回到顶部按钮 -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify-scroll-to-top@1.0.2/dist/docsify-scroll-to-top.min.js"></script>
-  <!-- docsify-themeable (latest v0.x.x) -->
-<!--  <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>-->
+  <!-- 回到顶部、页脚 -->
+  <script src="//unpkg.com/@zhg-x/docsify-plugins@1.0.2/src/scroll-to-top.js"></script>
+  <script src="//unpkg.com/@zhg-x/docsify-plugins@1.2.2/src/custom-footer.js"></script>
+  <!-- 图片缩放 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
 </body>
 </html>
