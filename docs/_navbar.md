@@ -1,8 +1,11 @@
 <!-- 导航栏配置 -->
 
-* [首页](/home)
+* [导航](/home)
 
 * [Java系列](/blog/java/overview)
+  * [Java基础知识](/blog/java/basic/overview)
+  * [Java集合框架](/blog/java/collection/overview)
+  * [Java并发框架](/blog/java/juc/overview)
 
 * [Spring系列](/blog/spring/spring)
 
