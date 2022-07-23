@@ -7,13 +7,13 @@
 
   * [Java并发框架](/blog/java/juc/overview)
 
-* Spring系列
+[comment]: <> (* Spring系列)
 
-* 数据结构与算法
+[comment]: <> (* 数据结构与算法)
 
-* 设计模式
+[comment]: <> (* 设计模式)
 
-* 开发运维工具
+[comment]: <> (* 开发运维工具)
   
-* 生活
+[comment]: <> (* 生活)
 

@@ -95,7 +95,7 @@ public ArrayList(Collection<? extends E> c) {
 
 ### 添加元素
 
-添加单个元素到数组末尾 `add(E e)`
+1. 添加单个元素到数组末尾 `add(E e)`
 
 ```java
 public boolean add(E e) {
@@ -106,7 +106,7 @@ public boolean add(E e) {
 }
 ```
 
-添加单个元素到指定顺序 `add(int index, E element)`
+2. 添加单个元素到指定顺序 `add(int index, E element)`
 
 ```java
 public void add(int index, E element) {
@@ -123,8 +123,6 @@ public void add(int index, E element) {
 ```java
 public static native void arraycopy(Object src,  int  srcPos, Object dest, int destPos,int length);
 ```
-
-
 
 当向数组添加元素前，都执行了 `ensureCapacityInternal(int minCapacity)` 方法，来确保数组有足够的容量容纳新添加的元素，具体代码如下：
 
@@ -155,7 +153,7 @@ private void ensureExplicitCapacity(int minCapacity) {
 }
 ```
 
-数组扩容 `grow(int minCapacity)`
+3. 数组扩容 `grow(int minCapacity)`
 
 ```java
 // 增加容量以确保它至少可以容纳最小容量参数指定的元素数量
@@ -185,9 +183,7 @@ private static int hugeCapacity(int minCapacity) {
 }
 ```
 
-
-
-批量添加多个元素 `addAll(Collection<? extends E> c)`，在明确知道需要添加多少元素的前提下，使用本方法可减少扩容次数。
+4. 批量添加多个元素 `addAll(Collection<? extends E> c)`，在明确知道需要添加多少元素的前提下，使用本方法可减少扩容次数。
 
 ```java
 public boolean addAll(Collection<? extends E> c) {
@@ -205,7 +201,7 @@ public boolean addAll(Collection<? extends E> c) {
 }
 ```
 
-批量添加多个元素 `addAll(int index, Collection<? extends E> c)`
+5. 批量添加多个元素 `addAll(int index, Collection<? extends E> c)`
 
 ```java
 public boolean addAll(int index, Collection<? extends E> c) {
@@ -231,7 +227,7 @@ public boolean addAll(int index, Collection<? extends E> c) {
 
 ### 删除元素
 
-删除指定位置的单个元素 `remove(int index)`
+1. 删除指定位置的单个元素 `remove(int index)`
 
 ```java
 // 移除此列表中指定位置的元素。将任何后续元素向左移动（从它们的索引中减去 1）
@@ -255,7 +251,7 @@ public E remove(int index) {
 }
 ```
 
-删除单个指定元素 `remove(Object o)`
+2. 删除单个指定元素 `remove(Object o)`
 
 ```java
 // 从此列表中删除第一次出现的指定元素（如果存在）。如果列表不包含该元素，则它不变
@@ -290,7 +286,7 @@ private void fastRemove(int index) {
 }
 ```
 
-删除指定集合中的所有元素 `removeAll(Collection<?> c)`
+3. 删除指定集合中的所有元素 `removeAll(Collection<?> c)`
 
 > 注意其中的 `complement` 参数，当需要删除元素时，`complement` 为 false，表示在集合 c 中，就不执行后续代码（保留元素）；当需要保留元素时，`complement` 为 true，表示在集合 c 中，就执行后续代码（保留元素）。
 > 
@@ -342,7 +338,7 @@ private boolean batchRemove(Collection<?> c, boolean complement) {
 }
 ```
 
-删除一定范围的元素 `removeRange(int fromIndex, int toIndex)`
+4. 删除一定范围的元素 `removeRange(int fromIndex, int toIndex)`
 
 ```java
 // 从此列表中删除索引在fromIndex （包括）和toIndex （不包括）之间的所有元素。将任何后续元素向左移动
@@ -365,7 +361,7 @@ protected void removeRange(int fromIndex, int toIndex) {
 
 ### 查找元素
 
-查找指定索引的元素 `get(int index)`
+1. 查找指定索引的元素 `get(int index)`
 
 ```java
 // 返回此列表中指定位置的元素。
@@ -381,7 +377,7 @@ E elementData(int index) {
 }
 ```
 
-查找某个元素首次出现的索引 `indexOf(Object o)`
+2. 查找某个元素首次出现的索引 `indexOf(Object o)`
 
 ```java
 // 返回此列表中指定元素第一次出现的索引，如果此列表不包含该元素，则返回 -1
@@ -402,7 +398,7 @@ public int indexOf(Object o) {
 }
 ```
 
-判断集合是否包含指定元素 `contains(Object o)`
+3. 判断集合是否包含指定元素 `contains(Object o)`
 
 ```java
 // 如果此列表包含指定元素，则返回true
@@ -412,7 +408,7 @@ public boolean contains(Object o) {
 }
 ```
 
-查找指定元素最后出现的位置 `lastIndexOf(Object o)`
+4. 查找指定元素最后出现的位置 `lastIndexOf(Object o)`
 
 ```java
 // 返回此列表中指定元素最后一次出现的索引，如果此列表不包含该元素，则返回 -1
@@ -468,7 +464,7 @@ public void clear() {
 
 ### 转换为数组
 
-将 ArrayList 转换成 `Object` 数组 `toArray()`
+1. 将 ArrayList 转换成 `Object` 数组 `toArray()`
 
 ```java
 public Object[] toArray() {
@@ -481,7 +477,7 @@ public static <T> T[] copyOf(T[] original, int newLength) {
 }
 ```
 
-还有一个可泛型的数组转换方法 `toArray(T[] a)`
+2. 还有一个可泛型的数组转换方法 `toArray(T[] a)`
 
 ```java
 public <T> T[] toArray(T[] a) {
@@ -527,7 +523,7 @@ public boolean equals(Object o) {
 
 ### 序列化
 
-序列化 `writeObject(java.io.ObjectOutputStream s)`
+1. 序列化 `writeObject(java.io.ObjectOutputStream s)`
 
 ```java
 private void writeObject(java.io.ObjectOutputStream s) throws java.io.IOException{
@@ -550,7 +546,7 @@ private void writeObject(java.io.ObjectOutputStream s) throws java.io.IOExceptio
 }
 ```
 
-反序列化 `readObject(java.io.ObjectInputStream s)`
+2. 反序列化 `readObject(java.io.ObjectInputStream s)`
 
 ```java
 private void readObject(java.io.ObjectInputStream s) 
@@ -637,7 +633,7 @@ private class SubList extends AbstractList<E> implements RandomAccess {
 
 ### 迭代器
 
-iterator 迭代器
+1. iterator 迭代器
 
 ```java
 public Iterator<E> iterator() {
@@ -745,7 +741,7 @@ private class Itr implements Iterator<E> {
 }
 ```
 
-ListIterator 迭代器
+2. ListIterator 迭代器
 
 > `ListIterator` 迭代器 是为 List 设计的功能更强大的迭代器，`ListIterator` 继承了 `Itr` ，并提供了更多的方法。
 
@@ -838,3 +834,8 @@ private class ListItr extends Itr implements ListIterator<E> {
     }
 }
 ```
+
+## 参考资料
+
+* [Java 程序员进阶之路](https://tobebetterjavaer.com/collection/gailan.html)
+* [Java全栈知识体系](https://pdai.tech/md/java/collection/java-collection-all.html)

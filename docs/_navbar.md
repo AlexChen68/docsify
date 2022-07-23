@@ -1,6 +1,6 @@
 <!-- 导航栏配置 -->
 
-* [导航](/home)
+* [首页](/home)
 
 * [Java系列](/blog/java/overview)
   * [Java基础知识](/blog/java/basic/overview)
