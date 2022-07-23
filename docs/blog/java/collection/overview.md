@@ -33,7 +33,9 @@ Java容器主要包括 Collection 和 Map 两种，Collection 存储着对象的
 
 `Collection`接口继承了 `Iterable`接口，实现 `Collection` 就意味着需要提供 `iterator()` 方法
 
-`java.util.AbstractCollection` 类提供了 `Collection` 类的默认实现，使得你可以创建 `AbstractCollection` 的子类型，而其中没有不必要的代码重复
+`java.util.AbstractCollection` 类提供了 `Collection` 类的默认实现，使得你可以创建 `AbstractCollection` 的子类型，而其中没有不必要的代码重复。
+
+Java访问集合总是通过统一的方式——迭代器（Iterator）来实现，它最明显的好处在于无需知道集合内部元素是按什么方式存储的。
 
 ### List接口
 

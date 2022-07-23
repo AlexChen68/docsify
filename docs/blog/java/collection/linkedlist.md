@@ -138,40 +138,50 @@ void linkLast(E e) {
 #### 删除元素
 
 ```java
-// 取消第一个非空节点 f 的链接
+// 删除非空的头结点 f
 private E unlinkFirst(Node<E> f) {
     // assert f == first && f != null;
     final E element = f.item;
+    // 获取 f 的下一个结点
     final Node<E> next = f.next;
+    // 将 f 结点属性置为 null，帮助 GC
     f.item = null;
     f.next = null; // help GC
+    // 头结点指向 f 的下一个结点
     first = next;
+    // 如果下一个结点为 null，表示链表空了，则尾结点也置为 null
     if (next == null)
         last = null;
     else
+        // 否则，将下一个结点的 prev 置为 null，表示其前面没有结点
         next.prev = null;
     size--;
     modCount++;
     return element;
 }
 
-// 
+// 删除非空的结点 x
 E unlink(Node<E> x) {
     // assert x != null;
     final E element = x.item;
+    // 分别获取 x 的 prev 结点和 next 结点
     final Node<E> next = x.next;
     final Node<E> prev = x.prev;
 
+    // 前面没结点
     if (prev == null) {
         first = next;
     } else {
+        // 前面结点和后面结点链接
         prev.next = next;
         x.prev = null;
     }
 
+    // 后面没结点
     if (next == null) {
         last = prev;
     } else {
+        // 后面结点和前面结点链接
         next.prev = prev;
         x.next = null;
     }
@@ -182,16 +192,22 @@ E unlink(Node<E> x) {
     return element;
 }
 
+// 删除非空的尾结点 l
 private E unlinkLast(Node<E> l) {
     // assert l == last && l != null;
     final E element = l.item;
+    // 获取尾结点的前一个结点
     final Node<E> prev = l.prev;
+    // 尾结点属性置为 null，帮助 GC
     l.item = null;
     l.prev = null; // help GC
+    // 前一个结点成为新的尾结点
     last = prev;
+    // 如果前面结点为 null，表示链表空了
     if (prev == null)
         first = null;
     else
+        // 新尾结点的 next 置为 null
         prev.next = null;
     size--;
     modCount++;
@@ -207,12 +223,14 @@ private E unlinkLast(Node<E> l) {
 Node<E> node(int index) {
     // assert isElementIndex(index);
 
+    // 如果 index 小于 size 的一半，就正序遍历，获得第 index 个节点
     if (index < (size >> 1)) {
         Node<E> x = first;
         for (int i = 0; i < index; i++)
             x = x.next;
         return x;
     } else {
+        // 如果 index 大于 size 的一半，就倒序遍历，获得第 index 个节点
         Node<E> x = last;
         for (int i = size - 1; i > index; i--)
             x = x.prev;
@@ -220,8 +238,6 @@ Node<E> node(int index) {
     }
 }
 ```
-
-
 
 ### 集合方法
 
@@ -264,12 +280,13 @@ public boolean addAll(Collection<? extends E> c) {
 ```java
 public boolean addAll(int index, Collection<? extends E> c) {
     checkPositionIndex(index);
-
+	// 将 c 转为 Object 数组 a
     Object[] a = c.toArray();
     int numNew = a.length;
     if (numNew == 0)
         return false;
 
+    // 获得第 index 位置的节点 succ ，和其前一个节点 pred
     Node<E> pred, succ;
     if (index == size) {
         succ = null;
@@ -279,16 +296,21 @@ public boolean addAll(int index, Collection<? extends E> c) {
         pred = succ.prev;
     }
 
+    // 遍历 a 数组，创建结点依次添加到 pred 后面
     for (Object o : a) {
         @SuppressWarnings("unchecked") E e = (E) o;
         Node<E> newNode = new Node<>(pred, e, null);
+        // 如果 pred 为 null ，说明 first 也为 null ，则直接将 first 指向新节点
         if (pred == null)
             first = newNode;
         else
+            // pred 下一个指向新节点
             pred.next = newNode;
+        // 修改 pred 指向新节点
         pred = newNode;
     }
 
+    // 修改 succ 和 pred 的指向
     if (succ == null) {
         last = pred;
     } else {
@@ -318,6 +340,7 @@ public E remove(int index) {
 ```java
 public boolean remove(Object o) {
     if (o == null) {
+        // 从头遍历，匹配到值为 null 的元素后删除 
         for (Node<E> x = first; x != null; x = x.next) {
             if (x.item == null) {
                 unlink(x);
@@ -325,6 +348,7 @@ public boolean remove(Object o) {
             }
         }
     } else {
+        // 从头遍历，匹配到值为 o 的元素后删除 
         for (Node<E> x = first; x != null; x = x.next) {
             if (o.equals(x.item)) {
                 unlink(x);
@@ -338,11 +362,12 @@ public boolean remove(Object o) {
 
 #### 更新元素
 
-* 将此列表中指定位置的元素替换为指定元素
+1. 将此列表中指定位置的元素替换为指定元素
 
 ```java
 public E set(int index, E element) {
    checkElementIndex(index);
+    // 找到索引为 index 的结点，进行替换
    Node<E> x = node(index);
    E oldVal = x.item;
    x.item = element;
@@ -389,12 +414,14 @@ public int indexOf(Object o) {
 public int lastIndexOf(Object o) {
     int index = size;
     if (o == null) {
+        // 从尾结点遍历，第一次匹配到值为 null 的元素后结束
         for (Node<E> x = last; x != null; x = x.prev) {
             index--;
             if (x.item == null)
                 return index;
         }
     } else {
+        // 从尾结点遍历，第一次匹配到值为 o 的元素后结束
         for (Node<E> x = last; x != null; x = x.prev) {
             index--;
             if (o.equals(x.item))
@@ -433,66 +460,212 @@ public void clear() {
     modCount++;
 }
 ```
-#### 其他
-
-1. 转换为数组
+#### 转为数组
 
 ```java
 public Object[] toArray() {
+    // 创建 Object 数组
     Object[] result = new Object[size];
     int i = 0;
+    // 从头结点开始遍历，每个结点的值写入数组
     for (Node<E> x = first; x != null; x = x.next)
         result[i++] = x.item;
+    // 返回数组
     return result;
 }
 
 public <T> T[] toArray(T[] a) {
+    // 如果 a 数组空间不足，给重新分配 a 数组空间
     if (a.length < size)
         a = (T[])java.lang.reflect.Array.newInstance(
                             a.getClass().getComponentType(), size);
     int i = 0;
     Object[] result = a;
+    // 顺序遍历链表，复制到 a 中
     for (Node<E> x = first; x != null; x = x.next)
         result[i++] = x.item;
-
+    // 如果 a 空间有剩余，手动置为 null，帮助 GC
     if (a.length > size)
         a[size] = null;
-
     return a;
 }
 ```
 
-2. 序列化
+#### 迭代器
+
+获取 `iterator` 迭代器（通过继承 `AbstractSequentialList` 获得），实际还是获取 `listIterator` 迭代器
 
 ```java
-private void writeObject(java.io.ObjectOutputStream s)
-    throws java.io.IOException {
-    // Write out any hidden serialization magic
-    s.defaultWriteObject();
-
-    // Write out size
-    s.writeInt(size);
-
-    // Write out all elements in the proper order.
-    for (Node<E> x = first; x != null; x = x.next)
-        s.writeObject(x.item);
+// AbstractSequentialList.java
+public Iterator<E> iterator() {
+    return listIterator();
 }
+
+// AbstractList.java
+public ListIterator<E> listIterator() {
+    return listIterator(0);
+}
+
+// AbstractSequentialList.java
+public abstract ListIterator<E> listIterator(int index);
+
 ```
 
-3. 反序列化
+`listIterator` 源码：
 
 ```java
-private void readObject(java.io.ObjectInputStream s)
-    throws java.io.IOException, ClassNotFoundException {
-    // Read in any hidden serialization magic
-    s.defaultReadObject();
+// LinkedList.java
 
-    // Read in size
-    int size = s.readInt();
+private class ListItr implements ListIterator<E> {
 
-    // Read in all elements in the proper order.
-    for (int i = 0; i < size; i++)
-        linkLast((E)s.readObject());
+    /**
+     * 最后返回的节点
+     */
+    private Node<E> lastReturned;
+    /**
+     * 下一个节点
+     */
+    private Node<E> next;
+    /**
+     * 下一个访问元素的位置，从下标 0 开始。
+     *
+     * 主要用于 {@link #nextIndex()} 中，判断是否遍历结束
+     */
+    private int nextIndex;
+    /**
+     * 创建迭代器时，数组修改次数。
+     *
+     * 在迭代过程中，如果数组发生了变化，会抛出 ConcurrentModificationException 异常。
+     */
+    private int expectedModCount = modCount;
+
+    ListItr(int index) {
+        // assert isPositionIndex(index);
+        // 获得下一个节点
+        next = (index == size) ? null : node(index);
+        // 下一个节点的位置
+        nextIndex = index;
+    }
+
+    public boolean hasNext() {
+        return nextIndex < size;
+    }
+
+    public E next() {
+        // 校验是否数组发生了变化
+        checkForComodification();
+        // 如果已经遍历到结尾，抛出 NoSuchElementException 异常
+        if (!hasNext())
+            throw new NoSuchElementException();
+
+        // lastReturned 指向，记录最后访问节点
+        lastReturned = next;
+        // next 指向，下一个节点
+        next = next.next;
+        // 下一个节点的位置 + 1
+        nextIndex++;
+        // 返回 lastReturned
+        return lastReturned.item;
+    }
+
+    public boolean hasPrevious() {
+        return nextIndex > 0;
+    }
+
+    public E previous() {
+        // 校验是否数组发生了变化
+        checkForComodification();
+        // 如果已经遍历到结尾，抛出 NoSuchElementException 异常
+        if (!hasPrevious())
+            throw new NoSuchElementException();
+
+        // 修改 lastReturned 和 next 的指向。此时，lastReturned 和 next 是相等的。
+        lastReturned = next = (next == null) ? last : next.prev;
+        // 下一个节点的位置 - 1
+        nextIndex--;
+        // 返回 lastReturned
+        return lastReturned.item;
+    }
+
+    public int nextIndex() {
+        return nextIndex;
+    }
+
+    public int previousIndex() {
+        return nextIndex - 1;
+    }
+
+    public void remove() {
+        // 校验是否数组发生了变化
+        checkForComodification();
+        // 如果 lastReturned 为空，抛出 IllegalStateException 异常，因为无法移除了。
+        if (lastReturned == null)
+            throw new IllegalStateException();
+
+        // 获得 lastReturned 的下一个
+        Node<E> lastNext = lastReturned.next;
+        // 移除 lastReturned 节点
+        unlink(lastReturned);
+        // 此处，会分成两种情况
+        if (next == lastReturned) // 说明发生过调用 `#previous()` 方法的情况，next 指向下一个节点，而 nextIndex 是无需更改的
+            next = lastNext;
+        else
+            nextIndex--; // nextIndex 减一。
+
+        // 设置 lastReturned 为空
+        lastReturned = null;
+        // 增加数组修改次数
+        expectedModCount++;
+    }
+
+    public void set(E e) {
+        // 如果 lastReturned 为空，抛出 IllegalStateException 异常，因为无法修改了。
+        if (lastReturned == null)
+            throw new IllegalStateException();
+        // 校验是否数组发生了变化
+        checkForComodification();
+        // 修改 lastReturned 的 item 为 e
+        lastReturned.item = e;
+    }
+
+    public void add(E e) {
+        // 校验是否数组发生了变化
+        checkForComodification();
+        // 设置 lastReturned 为空
+        lastReturned = null;
+        // 此处，会分成两种情况
+        if (next == null) // 如果 next 已经遍历到尾，则 e 作为新的尾节点，进行插入。算是性能优化
+            linkLast(e);
+        else // 插入到 next 的前面
+            linkBefore(e, next);
+        // nextIndex 加一。
+        nextIndex++;
+        // 增加数组修改次数
+        expectedModCount++;
+    }
+
+    public void forEachRemaining(Consumer<? super E> action) {
+        Objects.requireNonNull(action);
+        // 遍历剩余链表
+        while (modCount == expectedModCount && nextIndex < size) {
+            // 执行 action 逻辑
+            action.accept(next.item);
+            // lastReturned 指向 next
+            lastReturned = next;
+            //  next 指向下一个节点
+            next = next.next;
+            // nextIndex 加一。
+            nextIndex++;
+        }
+        // 校验是否数组发生了变化
+        checkForComodification();
+    }
+
+    final void checkForComodification() {
+        if (modCount != expectedModCount)
+            throw new ConcurrentModificationException();
+    }
+
 }
 ```
 
@@ -500,30 +673,45 @@ private void readObject(java.io.ObjectInputStream s)
 
 ### 双端队列方法
 
+`LinkedList` 实现了 `Deque` 接口（支持两端元素插入和移除的线性集合），该接口定义了访问双端队列两端元素的方法。
 
+该接口定义了访问双端队列两端元素的方法。提供了插入、删除和检查元素的方法。这些方法中的每一个都以两种形式存在：一种在操作失败时抛出异常，另一种返回特殊值（ null 或 false ，具体取决于操作）。后一种形式的插入操作是专门为容量受限的 `Deque` 实现而设计的；在大多数实现中，插入操作不会失败。
 
+Deque 方法总结：
 
+|      | 头部操作（抛异常） | 头部操作（特殊值） | 尾部操作（抛异常） | 尾部操作（特殊值） |
+| ---- | ------------------ | ------------------ | ------------------ | ------------------ |
+| 插入 | addFirst(e)        | offerFirst(e)      | addLast(e)         | offerLast(e)       |
+| 删除 | removeFirst()      | pollFirst()        | removeLast()       | pollLast()         |
+| 检查 | getFirst()         | peekFirst()        | getLast()          | peekLast()         |
 
+该接口扩展了 `Queue` 接口。当双端队列用作队列时，会产生 FIFO（先进先出）行为。元素在双端队列的末尾添加并从开头删除，从 `Queue` 接口继承的方法与 `Deque` 方法完全等价，如下表所示：
 
+| Queue 方法 | Deque 方法    |
+| ---------- | ------------- |
+| add(e)     | addLast(e)    |
+| offer(e)   | offerLast(e)  |
+| remove()   | removeFirst() |
+| poll()     | pollFirst()   |
+| element()  | getFirst()    |
+| peek()     | peekFirst()   |
 
-### 添加元素
+双端队列也可以用作 LIFO（后进先出）堆栈。应优先使用此接口而不是旧的 `Stack` 类。当双端队列用作堆栈时，从双端队列的开头推送和弹出元素。 `Stack` 方法完全等同于 `Deque` 方法，如下表所示：
 
-> 在链表中添加元素分为三种情况：
->
-> * 添加元素到链表头
-> * 添加元素到链表中间（指定结点前）
-> * 添加元素到链表末尾
->
-> 链表内部提供了这三种方式的基本方法 `linkFirst`、`linkBefore`、`linkLast`，`LinkedList` 同时还实现了 `Deque` 接口，有关队列操作的接口也都是通过调用这三个基本方式实现的。
+| Stack 方法 | Deque 方法    |
+| ---------- | ------------- |
+| push(e)    | addFirst(e)   |
+| pop()      | removeFirst() |
+| peek()     | peekFirst()   |
 
-1. 添加元素到链表头 `push(E e)`、 `addFirst(E e)`、`offerFirst`
+请注意，当双端队列用作队列或堆栈时， peek方法同样有效；在任何一种情况下，元素都是从双端队列的**开头**开始插入的。
+
+#### 添加元素
+
+1. 添加元素到队列头（或入栈）
 
 ```java
-// 入栈
-public void push(E e) {
-    addFirst(e);
-}
-
+//--- Deque Interface ---
 public void addFirst(E e) {
     linkFirst(e);
 }
@@ -533,70 +721,17 @@ public boolean offerFirst(E e) {
     return true;
 }
 
-// 链接 e 作为第一个元素
-private void linkFirst(E e) {
-    // 获取头结点
-    final Node<E> f = first;
-    // 创建新结点，prev 指向 null，next 指向当前头结点
-    final Node<E> newNode = new Node<>(null, e, f);
-    // 新结点作为新的头结点
-    first = newNode;
-    // 如果原头结点为 null，则原链表为空
-    if (f == null)
-        // 新结点也是尾结点
-        last = newNode;
-    else
-        // 原头结点的 prev 指向新结点
-        f.prev = newNode;
-    size++;
-    modCount++;
+//--- Stack Interface ---
+// 入栈
+public void push(E e) {
+    addFirst(e);
 }
 ```
 
-2. 在指定结点前插入元素 `add(int index, E element)`
+2. 添加元素到队列尾部
 
 ```java
-public void add(int index, E element) {
-    // 检查 index 是否越界
-    checkPositionIndex(index);
-
-    if (index == size)
-        // 如果 index 等于 size，表示在最后插入
-        linkLast(element);
-    else
-        // 调用 linkBefore，其中通过 node(index) 方法获取 index 位置的结点，具体见下文
-        linkBefore(element, node(index));
-}
-
-// 在非空节点 succ 之前插入元素 e
-void linkBefore(E e, Node<E> succ) {
-    // succ 不可以为空
-    // 获取 succ 的 前一个结点
-    final Node<E> pred = succ.prev;
-    // 创建新结点，prev 指向 succ 的前一个结点，next 指向 succ
-    final Node<E> newNode = new Node<>(pred, e, succ);
-    // succ 的 prev 指向新结点
-    succ.prev = newNode;
-    // 判断 succ 是不是头结点
-    if (pred == null)
-        // succ 是头结点，头结点指向新结点
-        first = newNode;
-    else
-        // succ 前一个结点的 next 指向新结点
-        pred.next = newNode;
-    size++;
-    modCount++;
-}
-```
-
-3. 在链表末尾插入结点 `add(E e)`、`addLast(E e)`、`offerLast(E e)`
-
-```java
-public boolean add(E e) {
-    linkLast(e);
-    return true;
-}
-
+//--- Deque Interface ---
 public void addLast(E e) {
     linkLast(e);
 }
@@ -605,33 +740,24 @@ public boolean offerLast(E e) {
     addLast(e);
     return true;
 }
+
+//--- Queue Interface ---
+public boolean add(E e) {
+    linkLast(e);
+    return true;
+}
+
+public boolean offer(E e) {
+    return add(e);
+}
 ```
 
-### 删除元素
+#### 删除元素
 
-> 在链表中删除元素同样分为三种情况：
->
-> * 从链表头删除元素
-> * 从链表中间删除元素
-> * 从链表尾删除元素
->
-> 链表内部提供了三种删除方式对应的方法：
-
-1. 从链表头删除元素 `pop()`、`removeFirst()`、`poll()`、`remove()`
+1. 从队列头部删除元素（或出栈）
 
 ```java
-// 从此列表表示的堆栈中弹出一个元素。换句话说，删除并返回此列表的第一个元素。
-// 此方法等效于removeFirst() 
-public E pop() {
-    return removeFirst();
-}
-
-// 检索并删除此列表的第一个元素，如果此列表为空，则返回null 
-public E pollFirst() {
-    final Node<E> f = first;
-    return (f == null) ? null : unlinkFirst(f);
-}
-
+//--- Deque Interface ---
 // 检索并删除此双端队列的第一个元素。此方法与pollFirst的不同之处仅在于如果此双端队列为空，它将引发异常
 public E removeFirst() {
     final Node<E> f = first;
@@ -640,6 +766,13 @@ public E removeFirst() {
     return unlinkFirst(f);
 }
 
+// 检索并删除此列表的第一个元素，如果此列表为空，则返回null 
+public E pollFirst() {
+    final Node<E> f = first;
+    return (f == null) ? null : unlinkFirst(f);
+}
+
+//--- Queue Interface ---
 // 检索并删除此队列的头部，如果此队列为空，则返回null 
 public E poll() {
     final Node<E> f = first;
@@ -650,19 +783,123 @@ public E poll() {
 public E remove() {
     return removeFirst();
 }
+
+//--- Stack Interface ---
+// 从此列表表示的堆栈中弹出一个元素。换句话说，删除并返回此列表的第一个元素。
+public E pop() {
+    return removeFirst();
+}
 ```
 
-2. 从链表中间删除元素
-
-
-
-2. 从链表尾删除元素
+2. 从队列尾部删除元素
 
 ```java
+//--- Deque Interface ---
+// 移除并返回此列表中的最后一个元素，如果此列表为空，则抛异常
+public E removeLast() {
+    final Node<E> l = last;
+    if (l == null)
+        throw new NoSuchElementException();
+    return unlinkLast(l);
+}
 
+// 检索并删除此列表的最后一个元素，如果此列表为空，则返回null 
+public E pollLast() {
+    final Node<E> l = last;
+    return (l == null) ? null : unlinkLast(l);
+}
+```
+
+#### 查询元素
+
+1. 从队列头部（栈顶）获取元素但不删除
+
+```java
+//--- Deque Interface ---
+// 检索但不删除此列表的头部（第一个元素），如果此列表为空，则抛异常
+public E getFirst() {
+    final Node<E> f = first;
+    if (f == null)
+        throw new NoSuchElementException();
+    return f.item;
+}
+
+// 检索但不删除此列表的第一个元素，如果此列表为空，则返回null 
+public E peekFirst() {
+    final Node<E> f = first;
+    return (f == null) ? null : f.item;
+ }
+
+//--- Stack Interface ---
+public E element() {
+    return getFirst();
+}
+
+// also stack interface
+public E peek() {
+    final Node<E> f = first;
+    return (f == null) ? null : f.item;
+}
+```
+
+2. 从队列尾部获取元素但不删除
+
+```java
+// 返回此列表中的最后一个元素，如果此列表为空，则抛异常
+public E getLast() {
+    final Node<E> l = last;
+    if (l == null)
+        throw new NoSuchElementException();
+    return l.item;
+}
+
+// 检索但不删除此列表的最后一个元素，如果此列表为空，则返回null
+public E peekLast() {
+    final Node<E> l = last;
+    return (l == null) ? null : l.item;
+}
+```
+
+
+
+### 序列化
+
+1. 序列化
+
+```java
+private void writeObject(java.io.ObjectOutputStream s)
+    throws java.io.IOException {
+    // 写入非静态属性、非 transient 属性
+    s.defaultWriteObject();
+
+    // 写入 size
+    s.writeInt(size);
+
+    // 遍历写入元素的数据
+    for (Node<E> x = first; x != null; x = x.next)
+        s.writeObject(x.item);
+}
+```
+
+2. 反序列化
+
+```java
+private void readObject(java.io.ObjectInputStream s)
+    throws java.io.IOException, ClassNotFoundException {
+    // 读取非静态属性、非 transient 属性
+    s.defaultReadObject();
+
+    // 读取 size
+    int size = s.readInt();
+
+    // 遍历读取全部数据
+    for (int i = 0; i < size; i++)
+        linkLast((E)s.readObject());
+}
 ```
 
 ## 参考资料
 
+* [芋道源码](https://www.iocoder.cn/)
 * [Java 程序员进阶之路](https://tobebetterjavaer.com/collection/gailan.html)
 * [Java全栈知识体系](https://pdai.tech/md/java/collection/java-collection-all.html)

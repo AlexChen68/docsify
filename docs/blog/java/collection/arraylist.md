@@ -837,5 +837,6 @@ private class ListItr extends Itr implements ListIterator<E> {
 
 ## 参考资料
 
+* [芋道源码](https://www.iocoder.cn/)
 * [Java 程序员进阶之路](https://tobebetterjavaer.com/collection/gailan.html)
 * [Java全栈知识体系](https://pdai.tech/md/java/collection/java-collection-all.html)
