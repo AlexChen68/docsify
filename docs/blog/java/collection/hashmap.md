@@ -17,7 +17,7 @@
 
 ## 类图
 
-![HashMap 类图](../../../images/java/collection/hashmap-class.png)
+![HashMap 类图](../../../images/java/collection/hashmap-class.png ':size=60%')
 
 `HashMap` 实现了三个接口：
 * `java.io.Serializable` 序列化接口
@@ -149,8 +149,6 @@ static class Entry<K,V> extends HashMap.Node<K,V> {
     }
 }
 ```
-
-
 
 ## 构造方法
 
@@ -743,6 +741,24 @@ void reinitialize() {
     size = 0;
 }
 ```
+
+## 总结
+
+`HashMap` 是一种散列表的数据结构，底层采用数组 + 链表 + 红黑树来实现，使用 Node 数组（Node<K,V>[] table）存储数据，在数组的具体索引位置，如果存在多个节点，则可能是以链表或红黑树的形式存在。
+
+`HashMap` 默认容量为 16(`1 << 4`)，每次超过阀值时，按照两倍大小进行自动扩容，所以容量总是 2^N 次方。并且，底层的 `table` 数组是延迟初始化，在首次添加 key-value 键值对才进行初始化。
+
+`HashMap` 根据 key 计算哈希值得到数组中位置的过程：
+
+- 调用 key 的 `hashCode()` 方法，得到哈希值 h；
+- 将 h 与 h >>> 16 进行**异或**运算得到新哈希值 h；
+- 在 h 和 (length-1) 进行**与**运算，得到 key 在哈希桶数组中位置。
+
+`HashMap` 每个槽位在满足如下两个条件时，可以进行树化成红黑树，避免槽位是链表数据结构时，链表过长，导致查找性能过慢：
+
+- 条件一，HashMap 的 `table` 数组大于等于 64 。
+- 条件二，槽位链表长度大于等于 8 时。选择 8 作为阀值的原因是，参考 [泊松概率函数(Poisson distribution)](http://en.wikipedia.org/wiki/Poisson_distribution) ，概率不足千万分之一。
+- 在槽位的红黑树的节点数量小于等于 6 时，会退化回链表。
 
 ## 参考资料
 
