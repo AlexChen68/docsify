@@ -7,6 +7,28 @@
 
   * [Java并发框架](/blog/java/juc/overview)
 
+* Spring系列
+  * [Spring框架](/blog/spring/spring)
+  * [SpringBoot](/blog/spring/springboot)
+  * [SpringCloud](/blog/spring/springcloud)
+
+* 数据库和中间件
+  * [数据库](/blog/database/mysql)
+  * [中间件](/blog/database/zookeeper)
+
+* 编程能力
+  * [数据结构](/blog/advanced/ds/overview)
+  * [算法基础](/blog/advanced/algo/overview)
+  * [设计模式](/blog/advanced/design/principle)
+
+* DevOps
+  * [开发工具](/blog/devops/dev/git)
+  * [部署工具](/blog/devops/ops/linux)
+  * [文档工具](/blog/devops/docs/markdown)
+
+* 其他
+  * [诗](/blog/other/poetry/我相信)
+
 [comment]: <> (* Spring系列)
 
 [comment]: <> (* 数据结构与算法)

@@ -1,14 +1,14 @@
 * 开发工具
-  * [Git](git)
-  * [Maven](maven)
+  * [Git](/blog/devops/dev/git)
+  * [Maven](/blog/devops/dev/maven)
 
 * 运维部署工具
-  * [Linux](linux)
-  * [Nginx](nginx)
-  * [Node.js](nodejs)
-  * [Docker概述](docker-overview)
-  * [Docker基础](docker-basic)
+  * [Linux](/blog/devops/ops/linux.md)
+  * [Nginx](/blog/devops/ops/nginx.md)
+  * [Node.js](/blog/devops/ops/nodejs.md)
+  * [Docker概述](/blog/devops/ops/docker-overview.md)
+  * [Docker基础](/blog/devops/ops/docker-basic.md)
 
 * 文档工具
-  * [Markdown](markdown)
-  * [Docsify](docsify)
+  * [Markdown](/blog/devops/docs/markdown.md)
+  * [Docsify](/blog/devops/docs/docsify.md)

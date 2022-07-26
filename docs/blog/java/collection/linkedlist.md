@@ -1,6 +1,8 @@
+> 本文基于 JDK1.8
+
 ## 概述
 
-`LinkedList` 同时实现了 `List` 接口和 `Deque` 接口，它既可以当成顺序容器，又可以作为双端队列使用，同时还可以看作一个栈（Stack）。栈和队列还有一个更好的选择是 `ArrayDeque`，它有比 `LinkedList` 更好的性能。
+`LinkedList` 同时实现了 `List` 接口和 `Deque` 接口，它既可以当成顺序容器，又可以作为双端队列使用，同时还可以看作一个栈（Stack）。栈和队列还有一个更好的选择是 `ArrayDeque`，它有比 `LinkedList` 更好的性能。(本文基于 JDK1.8)
 
 ## 类图
 
@@ -67,13 +69,11 @@ public LinkedList(Collection<? extends E> c) {
 }
 ```
 
-## 方法
-
-### 链表基本操作
+## 链表操作
 
 > 在 LinkedList 内部，提供了在链表头部、中间以及尾部操作数据的基本方法，例如 `linkFirst`、`linkBefore`、`linkLast` 等等，再通过这些基本方法的调用，来实现满足不同数据结构定义的操作。
 
-#### 添加元素
+### 添加元素
 
 ```java
 // 链接 e 作为第一个元素
@@ -135,7 +135,7 @@ void linkLast(E e) {
 }
 ```
 
-#### 删除元素
+### 删除元素
 
 ```java
 // 删除非空的头结点 f
@@ -215,7 +215,7 @@ private E unlinkLast(Node<E> l) {
 }
 ```
 
-#### 查询元素
+### 查询元素
 
 1. 返回指定元素索引处的（非空）节点
 
@@ -239,11 +239,11 @@ Node<E> node(int index) {
 }
 ```
 
-### 集合方法
+## 集合操作
 
 > 当 LinkedList 作为 List 使用时常用的方法
 
-#### 添加元素
+### 添加元素
 
 1. 将指定元素附加到此列表的末尾
 
@@ -324,7 +324,7 @@ public boolean addAll(int index, Collection<? extends E> c) {
 }
 ```
 
-#### 删除元素
+### 删除元素
 
 1. 移除此列表中指定位置的元素
 
@@ -360,7 +360,7 @@ public boolean remove(Object o) {
 }
 ```
 
-#### 更新元素
+### 更新元素
 
 1. 将此列表中指定位置的元素替换为指定元素
 
@@ -375,7 +375,7 @@ public E set(int index, E element) {
 }
 ```
 
-#### 查询元素
+### 查询元素
 
 1. 返回此列表中指定位置的元素
 
@@ -460,7 +460,7 @@ public void clear() {
     modCount++;
 }
 ```
-#### 转为数组
+### 转为数组
 
 ```java
 public Object[] toArray() {
@@ -491,7 +491,7 @@ public <T> T[] toArray(T[] a) {
 }
 ```
 
-#### 迭代器
+### 迭代器
 
 获取 `iterator` 迭代器（通过继承 `AbstractSequentialList` 获得），实际还是获取 `listIterator` 迭代器
 
@@ -671,7 +671,7 @@ private class ListItr implements ListIterator<E> {
 
 
 
-### 双端队列方法
+## 双端队列操作
 
 `LinkedList` 实现了 `Deque` 接口（支持两端元素插入和移除的线性集合），该接口定义了访问双端队列两端元素的方法。
 
@@ -706,7 +706,7 @@ Deque 方法总结：
 
 请注意，当双端队列用作队列或堆栈时， peek方法同样有效；在任何一种情况下，元素都是从双端队列的**开头**开始插入的。
 
-#### 添加元素
+### 添加元素
 
 1. 添加元素到队列头（或入栈）
 
@@ -752,7 +752,7 @@ public boolean offer(E e) {
 }
 ```
 
-#### 删除元素
+### 删除元素
 
 1. 从队列头部删除元素（或出栈）
 
@@ -810,7 +810,7 @@ public E pollLast() {
 }
 ```
 
-#### 查询元素
+### 查询元素
 
 1. 从队列头部（栈顶）获取元素但不删除
 
@@ -862,7 +862,7 @@ public E peekLast() {
 
 
 
-### 序列化
+## 序列化
 
 1. 序列化
 

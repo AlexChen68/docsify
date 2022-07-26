@@ -1,0 +1,15 @@
+* **数据结构**
+  * [概述](/blog/advanced/ds/overview)
+  * [线性表](/blog/advanced/ds/linear)
+  * [树](/blog/advanced/ds/tree)
+  * [图](/blog/advanced/ds/graph)
+* **算法**
+  * [算法概述](/blog/advanced/algo/overview)
+  * [算法思想](/blog/advanced/algo/thinking)
+  * [排序算法](/blog/advanced/algo/sort)
+  * [搜索算法](/blog/advanced/algo/search)
+* **设计模式**
+  * [设计原则](/blog/advanced/design/principle)
+  * [创建型模式](/blog/advanced/design/creational)
+  * [结构型模式](/blog/advanced/design/structural)
+  * [行为型模式](/blog/advanced/design/behavioural)
