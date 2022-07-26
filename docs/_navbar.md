@@ -2,15 +2,15 @@
 
 * [首页](/home)
 
-* [Java系列](/blog/java/overview)
+* [Java系列](/blog/java/basic/overview)
   * [Java基础知识](/blog/java/basic/overview)
   * [Java集合框架](/blog/java/collection/overview)
   * [Java并发框架](/blog/java/juc/overview)
 
-* [Spring系列](/blog/spring/spring)
-  * [Spring框架](/blog/spring/spring)
-  * [SpringBoot](/blog/spring/springboot)
-  * [SpringCloud](/blog/spring/springcloud)
+* [Spring系列](/blog/spring/spring/overview)
+  * [Spring框架](/blog/spring/spring/overview)
+  * [SpringBoot](/blog/spring/springboot/overview)
+  * [SpringCloud](/blog/spring/springcloud/overview)
 
 * [数据库和中间件](/blog/database/mysql)
   * [数据库](/blog/database/mysql)
@@ -26,5 +26,6 @@
   * [部署工具](/blog/devops/ops/linux)
   * [文档工具](/blog/devops/docs/markdown)
 
-* [其他](/blog/other/overview)
+* [其他](/blog/other/poetry/我相信)
   * [诗](/blog/other/poetry/我相信)
+  * [文案](/blog/other/sentence/cctv)

@@ -2,9 +2,7 @@
 
 * Java系列
   * [Java基础语法](/blog/java/basic/overview)
-
   * [Java集合框架](/blog/java/collection/overview)
-
   * [Java并发框架](/blog/java/juc/overview)
 
 * Spring系列
@@ -28,14 +26,5 @@
 
 * 其他
   * [诗](/blog/other/poetry/我相信)
-
-[comment]: <> (* Spring系列)
-
-[comment]: <> (* 数据结构与算法)
-
-[comment]: <> (* 设计模式)
-
-[comment]: <> (* 开发运维工具)
-  
-[comment]: <> (* 生活)
+  * [文案](/blog/other/sentence/cctv)
 
