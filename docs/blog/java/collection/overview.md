@@ -28,7 +28,7 @@ Java容器主要包括 Collection 和 Map 两种，Collection 存储着对象的
 
 ![Java集合框架](../../../images/java/collection/overview-framework.png ':size=80%')
 
-## Collection接口
+## Collection 接口
 
 `Collection` 是所有序列集合共有的根接口。集合表示一组对象，称为其元素。一些集合允许重复元素，而另一些则不允许。有些是有序的，有些是无序的。 JDK 不提供此接口的任何直接实现：它提供更具体的子接口（如 Set 和 List）的实现。此接口通常用于传递集合并在需要最大通用性的地方操作它们。
 
@@ -38,7 +38,7 @@ Java容器主要包括 Collection 和 Map 两种，Collection 存储着对象的
 
 Java访问集合总是通过统一的方式——迭代器（Iterator）来实现，它最明显的好处在于无需知道集合内部元素是按什么方式存储的。
 
-### List接口
+### List 接口
 
 > java.util.List接口继承自Collection接口，是单列集合的一个重要分支，习惯性地会将实现了List接口的对象称为List集合。
 >
@@ -70,7 +70,7 @@ Java访问集合总是通过统一的方式——迭代器（Iterator）来实�
 
 `Stack` 继承了 `Vector`，在其基础上实现了栈先进先出的功能（push、pop、peek等方法），方法上同样添加了 `synchronized` 关键字，官方推荐使用双端队列 `ArrayDeque`。
 
-### Queue
+### Queue 接口
 
 > Queue 接口继承了Collection，被设计用于处理之前临时保存在某处的元素。
 >
@@ -90,7 +90,7 @@ PriorityQueue 是一种优先级队列，它的出队顺序与元素的优先级
 
 要想有优先级，元素就需要实现 Comparable 接口或者 Comparator 接口
 
-### Set
+### Set 接口
 
 > Set 的特点是存取无序，不可以存放重复的元素，不可以用下标对元素进行操作，和 List 有很多不同。
 >
@@ -114,7 +114,7 @@ HashSet(int initialCapacity, float loadFactor, boolean dummy) {
 
 TreeSet 内部使用 TreeMap 实现，同样值由固定的 Object 对象填充，键用于操作。
 
-## Map接口
+## Map 接口
 
 > Map 保存的是键值对，键要求保持唯一性，值可以重复。
 
