@@ -6,10 +6,11 @@
 
 * Java集合框架
   * [概述](/blog/java/collection/overview)
-  * [ArrayList 源码解析](/blog/java/collection/arraylist)
-  * [LinkedList 源码解析](/blog/java/collection/linkedlist)
-  * [HashMap 源码解析](/blog/java/collection/hashmap)
-  * [LinkedHashMap 源码解析](/blog/java/collection/linkedhashmap)
+  * [ArrayList 源码解析](/blog/java/collection/ArrayList)
+  * [LinkedList 源码解析](/blog/java/collection/LinkedList)
+  * [HashMap 源码解析](/blog/java/collection/HashMap)
+  * [LinkedHashMap 源码解析](/blog/java/collection/LinkedHashMap)
+  * [TreeMap 源码解析](/blog/java/collection/TreeMap)
 
 * Java并发框架
   * [概述](/blog/java/juc/overview)

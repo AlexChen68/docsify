@@ -17,7 +17,7 @@
 
 ## 类图
 
-![HashMap 类图](../../../images/java/collection/hashmap-class.png ':size=60%')
+![HashMap 类图](../../../images/java/collection/HashMap-class.png ':size=60%')
 
 `HashMap` 实现了三个接口：
 * `java.io.Serializable` 序列化接口
@@ -210,7 +210,7 @@ public HashMap() {
 ```java
 public HashMap(Map<? extends K, ? extends V> m) {
     this.loadFactor = DEFAULT_LOAD_FACTOR;
-    // 批量将 map 元素放入 table 中
+    // 批量将 map 键值对放入 table 中
     putMapEntries(m, false);
 }
 ```
@@ -271,11 +271,11 @@ static final int hash(Object key) {
 2. key 不为 null 时，调用 key 的 hashCode 函数，并赋值给 h；
 3. h 和 h 的无符号右移16位的值进行异或运算，得到最终的哈希值。
 
-![HashMap 的 hash 函数](../../../images/java/collection/hashmap-hash.png)
+![HashMap 的 hash 函数](../../../images/java/collection/HashMap-hash.png)
 
 ## 数组扩容
 
-HashMap 内部的数组 `table` ，在初始化的时候是不创建的，而是在首次添加元素时，通过 `resize()` 初始化。在 `resize()` 方法中，如果数组已经创建，则会对其进行 2 倍容量的扩展。
+HashMap 内部的数组 `table` ，在初始化的时候是不创建的，而是在首次添加键值对时，通过 `resize()` 初始化。在 `resize()` 方法中，如果数组已经创建，则会对其进行 2 倍容量的扩展。
 
 ```java
 final Node<K,V>[] resize() {
@@ -386,9 +386,9 @@ final Node<K,V>[] resize() {
 
 ## Map操作
 
-### 添加元素
+### 添加键值对
 
-**1.  添加单个元素**
+**1.  添加单个键值对**
 
 ```java
 // 键不存在时，添加键值对；键存在时，更新 key 对应的 value
@@ -473,7 +473,7 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
 }
 ```
 
-**2. 添加多个元素**
+**2. 添加多个键值对**
 
 ```java
 public void putAll(Map<? extends K, ? extends V> m) {
@@ -509,7 +509,7 @@ final void putMapEntries(Map<? extends K, ? extends V> m, boolean evict) {
 }
 ```
 
-### 查找元素
+### 查找键值对
 
 1. **根据 key 查询 value**
 

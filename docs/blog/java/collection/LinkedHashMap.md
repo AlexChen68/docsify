@@ -1,3 +1,5 @@
+> 本文基于 JDK1.8
+
 ## 概述
 
 `HashMap` 是哈希表的无序实现，`LinkedHashMap` 在 `HashMap` 的基础之上，提供了顺序访问的特性。而这里的顺序，包括两种：
@@ -6,7 +8,7 @@
 
 ## 类图
 
-![LinkedHashMap 类图](../../../images/java/collection/linkedhashmap-class.png ':size=60%')
+![LinkedHashMap 类图](../../../images/java/collection/LinkedHashMap-class.png ':size=60%')
 
 `LinkedHashMap` 实现 `java.util.Map` 接口，继承了 `java.util.HashMap` 类。
 

@@ -6,7 +6,7 @@
 
 ## 类图
 
-![LinkedList类图](../../../images/java/collection/linkedlist-class.png ':size=60%')
+![LinkedList类图](../../../images/java/collection/LinkedList-class.png ':size=60%')
 
 `LinkedList` 实现了四个接口：
 
