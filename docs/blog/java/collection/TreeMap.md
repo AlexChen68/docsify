@@ -499,7 +499,7 @@ private void deleteEntry(Entry<K,V> p) {
 
 ### 获取接近的键值对
 
-1. 获取小于 key 的结点
+1. 获取**小于** key 的结点
 
 ```java
 public Map.Entry<K,V> lowerEntry(K key) {
@@ -512,29 +512,30 @@ static <K,V> Map.Entry<K,V> exportEntry(TreeMap.Entry<K,V> e) {
 }
 
 final Entry<K,V> getLowerEntry(K key) {
-    // 获取当前结点为根结点
+    // 定义当前结点 p，初始值为根结点
     Entry<K,V> p = root;
-    // 循环遍历红黑树
+    // 二叉查找遍历红黑树
     while (p != null) {
-        // 比较 key 和当前结点
+        /// 比较 key 和 p
         int cmp = compare(key, p.key);
-        // 大于 0，说明 key 大于当前结点，则需要在当前结点的右子树查找
+        // key 大于 p，说明在 p 的右边，则需要遍历右子树
         if (cmp > 0) {
-            // 如果右子树不为空，则当前结点指向右子树，循环遍历直至找到
+            // 右子树不为空，遍历右子树
             if (p.right != null)
                 p = p.right;
-            // 如果没有，表示当前结点就是小于 key 的结点中最大的了，返回当前结点
+            // 右子树为空，说明树中不存在该 key，p 是比它小的最近的结点，则直接返回 p
             else
                 return p;
-        // 小于等于 0，说明 key 小于等于当前结点，则当前结点为 key 或者需要在当前结点的左子树查找
+        // key 小于等于 p，说明在 p 的左边，则需要遍历左子树
         } else {
-            // 如果有左子树，则遍历左子树，继续下一个循环
+            // 左子树不为空，则遍历左子树
             if (p.left != null) {
                 p = p.left;
+            // 左子树为空，说明树中不存在该 key，返回 p 结点的前继结点
             } else {
-                // 找到后继结点
                 Entry<K,V> parent = p.parent;
                 Entry<K,V> ch = p;
+                // p 的前继结点应满足：p 在前继结点的右子树上且其离 p 最近
                 while (parent != null && ch == parent.left) {
                     ch = parent;
                     parent = parent.parent;
@@ -543,27 +544,223 @@ final Entry<K,V> getLowerEntry(K key) {
             }
         }
     }
+    // 极端情况，树中不存在比 key 小的结点，返回 null
     return null;
 }
 ```
 
-2. 获取小于等于 key 的结点
+2. 获取**小于等于** key 的结点
 
+```java
+public Map.Entry<K,V> floorEntry(K key) {
+    return exportEntry(getFloorEntry(key));
+}
 
+final Entry<K,V> getFloorEntry(K key) {
+    // 定义当前结点 p，初始值为根结点
+    Entry<K,V> p = root;
+    // 二叉查找遍历红黑树
+    while (p != null) {
+        // 比较 key 和 p
+        int cmp = compare(key, p.key);
+        // key 大于 p，说明在 p 的右边，则需要遍历右子树
+        if (cmp > 0) {
+            // 右子树不为空，遍历右子树
+            if (p.right != null)
+                p = p.right;
+            // 右子树为空，说明树中不存在该 key，p 是比它小的最近的结点，则直接返回 p
+            else
+                return p;
+        // key 小于 p，说明在 p 的左边，则需要遍历左子树
+        } else if (cmp < 0) {
+            // 左子树不为空，则遍历左子树
+            if (p.left != null) {
+                p = p.left;
+            // 左子树为空，说明树中不存在该 key，返回 p 结点的前继结点
+            } else {
+                Entry<K,V> parent = p.parent;
+                Entry<K,V> ch = p;
+                // p 的前继结点应满足：p 在前继结点的右子树上且其离 p 最近
+                while (parent != null && ch == parent.left) {
+                    ch = parent;
+                    parent = parent.parent;
+                }
+                return parent;
+            }
+        // key 等于 p，直接返回 p
+        } else
+            return p;
 
+    }
+    // 极端情况，树中不存在比 key 小的结点，返回 null
+    return null;
+}
+```
 
+3. 大于 key 的结点
 
+```java
+public Map.Entry<K,V> higherEntry(K key) {
+    return exportEntry(getHigherEntry(key));
+}
 
+final Entry<K,V> getHigherEntry(K key) {
+    // 定义当前结点 p，初始值为根结点
+    Entry<K,V> p = root;
+    // 二叉查找遍历红黑树
+    while (p != null) {
+        // 比较 key 和 p
+        int cmp = compare(key, p.key);
+        // key 小于 p，说明在 p 的左边，则需要遍历左子树
+        if (cmp < 0) {
+            // 左子树不为空，则遍历左子树
+            if (p.left != null)
+                p = p.left;
+            // 左子树为空，说明树中不存在该 key，p 是比它大的最近的结点，则直接返回 p
+            else
+                return p;
+        // key 大于等于 p，说明在 p 的右边，则需要遍历右子树
+        } else {
+            // 右子树不为空，则遍历右子树
+            if (p.right != null) {
+                p = p.right;
+            // 右子树为空，说明树中不存在该 key，返回 p 结点的后继结点
+            } else {
+                Entry<K,V> parent = p.parent;
+                Entry<K,V> ch = p;
+                // p 的后继结点应满足：p 在后继结点的左子树上且离 p 最近
+                while (parent != null && ch == parent.right) {
+                    ch = parent;
+                    parent = parent.parent;
+                }
+                return parent;
+            }
+        }
+    }
+    // 极端情况，树中不存在比 key 大的结点，返回 null
+    return null;
+}
+```
 
+4. 大于等于 key 的结点
 
+```java
+public Map.Entry<K,V> ceilingEntry(K key) {
+    return exportEntry(getCeilingEntry(key));
+}
 
+final Entry<K,V> getCeilingEntry(K key) {
+    // 定义当前结点 p，初始值为根结点
+    Entry<K,V> p = root;
+    // 二叉查找遍历红黑树
+    while (p != null) {
+        // 比较 key 和 p
+        int cmp = compare(key, p.key);
+        // key 小于 p，说明在 p 的左边，则需要遍历左子树
+        if (cmp < 0) {
+            // 左子树不为空，则遍历左子树
+            if (p.left != null)
+                p = p.left;
+            // 左子树为空，说明树中不存在该 key，p 是比它大的最近的结点，则直接返回 p
+            else
+                return p;
+        // key 大于 p，说明在 p 的右边，则需要遍历右子树
+        } else if (cmp > 0) {
+            // 右子树不为空，则遍历右子树
+            if (p.right != null) {
+                p = p.right;
+            // 右子树为空，说明树中不存在该 key，返回 p 结点的后继结点
+            } else {
+                Entry<K,V> parent = p.parent;
+                Entry<K,V> ch = p;
+                // p 的后继结点应满足：p 在后继结点的左子树上且离 p 最近
+                while (parent != null && ch == parent.right) {
+                    ch = parent;
+                    parent = parent.parent;
+                }
+                return parent;
+            }
+        // key 等于 p，直接返回 p
+        } else
+            return p;
+    }
+    // 极端情况，树中不存在比 key 大的结点，返回 null
+    return null;
+}
+```
 
+其他的 `lowerKey`、`floorKey`、`higherKey`、`ceilingKey`只是在对应方法上加了判断 null 和取值的操作而已。
 
 ### 获取首尾的键值对
 
+1. 获取首个结点
 
+`firstEntry()` 会返回 TreeMap 中的第一个 `Entry` 结点（根据 TreeMap 的键排序函数），
+
+```java
+public Map.Entry<K,V> firstEntry() {
+    return exportEntry(getFirstEntry());
+}
+
+final Entry<K,V> getFirstEntry() {
+    Entry<K,V> p = root;
+    if (p != null)
+        while (p.left != null)
+            p = p.left;
+    return p;
+}
+```
+
+而 `pollFirstEntry()` 不仅会返回第一个 `Entry` 结点，还会从树中删除它。
+
+```java
+public Map.Entry<K,V> pollFirstEntry() {
+    Entry<K,V> p = getFirstEntry();
+    Map.Entry<K,V> result = exportEntry(p);
+    if (p != null)
+        deleteEntry(p);
+    return result;
+}
+```
+
+2. 获取最后一个结点
+
+`lastEntry()` 会返回 TreeMap 中的最后一个 `Entry` 结点（根据 TreeMap 的键排序函数），
+
+```java
+public Map.Entry<K,V> lastEntry() {
+    return exportEntry(getLastEntry());
+}
+
+final Entry<K,V> getLastEntry() {
+    Entry<K,V> p = root;
+    if (p != null)
+        while (p.right != null)
+            p = p.right;
+    return p;
+}
+```
+
+同样地，`pollLastEntry()` 不仅会返回最后一个结点，还会从树中删除它。
+
+```java
+public Map.Entry<K,V> pollLastEntry() {
+    Entry<K,V> p = getLastEntry();
+    Map.Entry<K,V> result = exportEntry(p);
+    if (p != null)
+        deleteEntry(p);
+    return result;
+}
+```
 
 ## 总结
 
+- TreeMap 按照 key 的**顺序**的 Map 实现类，底层采用**红黑树**来实现存储。
+- TreeMap 因为采用树结构，所以无需初始考虑像 HashMap 考虑**容量**问题，也不存在扩容问题。
+- TreeMap 的 **key** 不允许为空( `null` )，可能是因为红黑树是一颗二叉查找树，需要对 key 进行排序。
+- TreeMap 的查找、添加、删除 key-value 键值对的**平均**时间复杂度为 `O(logN)` 。原因是，TreeMap 采用红黑树，操作都需要经过二分查找，而二分查找的时间复杂度是 `O(logN)` 。
+- 相比 HashMap 来说，TreeMap 不仅仅支持指定 key 的查找，也支持 key **范围**的查找。当然，这也得益于 TreeMap 数据结构能够提供的有序特性。
+
 ## 参考资料
 
+[芋道源码](https://www.iocoder.cn/)
