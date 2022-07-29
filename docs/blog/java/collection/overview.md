@@ -1,3 +1,5 @@
+> 本文基于 JDK1.8
+
 # Java集合框架概览
 
 容器，就是可以容纳其他Java对象的对象。*Java Collections Framework(JCF)* 为Java开发者提供了通用的容器，其始于JDK 1.2，优点是:

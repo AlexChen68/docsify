@@ -1,5 +1,3 @@
-> 本文基于 JDK1.8
-
 ## 概述
 
 `HashMap` 是 java 中 Map 接口基于哈希表的实现，用于存储 key-value 键值对的数据结构，提供平均时间复杂度为 O(1) 的、基于 key 级别的 get/put 等操作。
