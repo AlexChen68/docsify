@@ -15,5 +15,6 @@
   * [LinkedHashSet 源码解析](/blog/java/collection/LinkedHashSet)
   * [TreeSet 源码解析](/blog/java/collection/TreeSet)
 
-* Java并发框架
-  * [概述](/blog/java/juc/overview)
+* Java并发编程
+  * [概述](/blog/java/concurrency/overview)
+  * [线程](/blog/java/concurrency/thread)

@@ -3,7 +3,7 @@
 * Java系列
   * [Java基础语法](/blog/java/basic/overview)
   * [Java集合框架](/blog/java/collection/overview)
-  * [Java并发框架](/blog/java/juc/overview)
+  * [Java并发框架](/blog/java/concurrency/overview)
 
 * Spring系列
   * [Spring框架](/blog/spring/spring)

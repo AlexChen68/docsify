@@ -5,7 +5,7 @@
 * [Java系列](/blog/java/basic/overview)
   * [Java基础知识](/blog/java/basic/overview)
   * [Java集合框架](/blog/java/collection/overview)
-  * [Java并发框架](/blog/java/juc/overview)
+  * [Java并发框架](/blog/java/concurrency/overview)
 
 * [Spring系列](/blog/spring/spring/overview)
   * [Spring框架](/blog/spring/spring/overview)
