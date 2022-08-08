@@ -5,7 +5,9 @@
   * [ElasticSearch](/blog/database/es)
   
 * 中间件
-  * [Zookeeper](zookeeper)
+  * [Zookeeper](/blog/database/middleware/zookeeper.md)
+  * [Kafka](/blog/database/middleware/kafka.md)
 
 * ORM 框架
-  * [Mybatis](/blog/database/mybatis/mybatis)
+  * [mybatis](/blog/database/mybatis/mybatis)
+  * [mybatis-spring](/blog/database/mybatis/mybatis-spring)

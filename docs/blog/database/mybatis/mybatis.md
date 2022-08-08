@@ -1,3 +1,5 @@
+## Mybatis 概述
+
 > 本章节基于 [Mybatis3 官方文档](https://mybatis.org/mybatis-3/zh/index.html) 编写，介绍普通 Java 项目使用 Mybatis 的方式，以及 Mybatis 的基本配置和功能。
 
 MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。
@@ -15,7 +17,11 @@ Mybatis 的特点：
 - 提供对象关系映射标签，支持对象关系组建维护。
 - 提供xml标签，支持编写动态sql。
 
-## 安装
+## Mybatis 运行原理
+
+![Mybatis运行原理](../../../images/database/mybatis-process.png)
+
+## 引入 Mybatis
 
 - 将 [mybatis-x.x.x.jar](https://github.com/mybatis/mybatis-3/releases) 文件置于类路径（classpath）中即可
 
@@ -726,7 +732,12 @@ public class User {
 Mybatis 有两种缓存：
 
 - 一级缓存：又称为本地缓存，它只在 SqlSession 的生命周期中有效，同一个 SqlSession 对象， 在参数和 SQL 完全一样的情况下， 只执行一次 SQL 语句 （前提缓存没有过期）；
-- 二级缓：Mybatis的二级缓存是指 mapper 映射文件。二级缓存的作用域是同一个 namespace 下 的mapper 映射文件内容，多个 SqlSession 共享。可以通过在 Mapper 映射文件中添加 `<cache/>` 开启二级缓存，此时该 Mapper 中所有方法都支持缓存。
+
+- 二级缓存：Mybatis的二级缓存是指 mapper 映射文件。二级缓存的作用域是同一个 namespace 下 的mapper 映射文件内容，多个 SqlSession 共享。可以通过在 Mapper 映射文件中添加 `<cache/>` 开启二级缓存，此时该 Mapper 中所有方法都支持缓存。
+
+  在全局设置中，还有一个 `cacheEnabled` 配置用来全局性地开启或关闭所有映射器配置文件中已配置的任何缓存，默认为 true。
+
+当使用 Mybatis 查询数据时，查询的结果会先缓存到 SqlSession 中，当 SqlSession 关闭或者提交事务时，如果开启了二级缓存，则会将数据缓存到 二级缓存中；当用户调用方法查询数据时，首先会去二级缓存查找，如果有缓存则直接返回；没有再去一级缓存中查询，如果有缓存则直接返回，否则去连接数据库执行 SQL 查询。
 
 > 注意：缓存只作用于 cache 标签所在的映射文件中的语句。如果你混合使用 Java API 和 XML 映射文件，在共用接口中的语句将不会被默认缓存。你需要使用 @CacheNamespaceRef 注解指定缓存作用域。
 
@@ -768,7 +779,7 @@ readOnly（只读）属性可以被设置为 true 或 false。只读的缓存会
 
 > 二级缓存是事务性的。这意味着，当 SqlSession 完成并提交时，或是完成并回滚，但没有执行 flushCache=true 的 insert/delete/update 语句时，缓存会获得更新。
 
-关于自定义缓存或者引用另一个 Mapper 的缓存，可以见[官方文档](https://mybatis.org/mybatis-3/zh/sqlmap-xml.html#%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BC%93%E5%AD%98)
+Mybatis 还支持自定义缓存，关于自定义缓存或者引用另一个 Mapper 的缓存，可以见[官方文档](https://mybatis.org/mybatis-3/zh/sqlmap-xml.html#%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BC%93%E5%AD%98)
 
 ## 动态 SQL
 
@@ -986,10 +997,6 @@ MyBatis 有一个简单且适合大多数场景的解决办法。而在其他场
 ```
 
 ## Java API
-
-### Mybatis 运行原理
-
-
 
 ## 参考资料
 

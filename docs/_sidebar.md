@@ -6,13 +6,14 @@
   * [Java并发框架](/blog/java/concurrency/overview)
 
 * Spring系列
-  * [Spring框架](/blog/spring/spring)
+  * [Spring框架](/blog/spring/spring/overview)
   * [SpringBoot](/blog/spring/springboot)
   * [SpringCloud](/blog/spring/springcloud)
 
 * 数据库和中间件
   * [数据库](/blog/database/mysql)
-  * [中间件](/blog/database/zookeeper)
+  * [中间件](/docs/blog/database/middleware/zookeeper.md)
+  * [ORM框架](/blog/database/mybatis/mybatis)
 
 * 编程能力
   * [数据结构](/blog/advanced/ds/overview)

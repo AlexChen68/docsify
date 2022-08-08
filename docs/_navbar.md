@@ -14,7 +14,8 @@
 
 * [数据库和中间件](/blog/database/mysql)
   * [数据库](/blog/database/mysql)
-  * [中间件](/blog/database/zookeeper)
+  * [中间件](/docs/blog/database/middleware/zookeeper.md)
+  * [Mybatis](/blog/database/mybatis/mybatis)
 
 * [编程能力](/blog/advanced/ds/overview)
   * [数据结构](/blog/advanced/ds/overview)
