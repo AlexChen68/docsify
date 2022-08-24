@@ -8,7 +8,7 @@
   * [Java并发框架](/blog/java/concurrency/overview)
 
 * [Spring系列](/blog/spring/spring/overview)
-  * [Spring框架](/blog/spring/spring/overview)
+  * [SpringFramework](/blog/spring/spring/overview)
   * [SpringBoot](/blog/spring/springboot/overview)
   * [SpringCloud](/blog/spring/springcloud/overview)
 
