@@ -4,7 +4,7 @@ ArrayList ，基于 `[]` 数组实现的，支持**自动扩容**的动态数组
 
 ## 类图
 
-![ArrayList类图](../../../images/java/collection/ArrayList-class.png ':size=60%')
+![ArrayList类图](../../../public/images/java/collection/ArrayList-class.png ':size=60%')
 
 `ArrayList` **实现**了 4 个接口，分别是：
 

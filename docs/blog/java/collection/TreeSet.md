@@ -4,7 +4,7 @@
 
 ## 类图
 
-![TreeSet类图](../../../images/java/collection/TreeSet-class.png ':size=60%')
+![TreeSet类图](../../../public/images/java/collection/TreeSet-class.png ':size=60%')
 
 `TreeSet` 实现了三个接口：
 

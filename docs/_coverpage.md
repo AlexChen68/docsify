@@ -1,9 +1,9 @@
-<p align="center">
-  <a href="/">
-    <img alt="docsify" src="./images/icon/technology.svg" height="30px" wi/>
-  </a>
-</p>
+<!-- ![logo](_media/icon.svg) -->
 
-<p align="center">
-  AlexChen`s Blog
-</p>
+# AlexChen's Blog <small>0.9.0</small>
+
+> 编程时长两年半的 Java 练习生
+
+
+[GitHub](https://github.com/alexchen68/docsify/)
+[Getting Started](/blog/java/basic/overview)

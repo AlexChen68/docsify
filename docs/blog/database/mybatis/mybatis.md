@@ -19,7 +19,7 @@ Mybatis 的特点：
 
 ## Mybatis 运行原理
 
-![Mybatis运行原理](../../../images/database/mybatis-process.png)
+![Mybatis运行原理](../../../public/images/database/mybatis-process.png)
 
 ## 引入 Mybatis
 

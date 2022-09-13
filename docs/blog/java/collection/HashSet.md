@@ -6,7 +6,7 @@
 
 ## 类图
 
-![HashSet类图](../../../images/java/collection/HashSet-class.png)
+![HashSet类图](../../../public/images/java/collection/HashSet-class.png)
 
 `HashSet` 实现了三个接口：
 

@@ -6,7 +6,7 @@
 
 ## 类图
 
-![LinkedHashMap 类图](../../../images/java/collection/LinkedHashMap-class.png ':size=60%')
+![LinkedHashMap 类图](../../../public/images/java/collection/LinkedHashMap-class.png ':size=60%')
 
 `LinkedHashMap` 实现 `java.util.Map` 接口，继承了 `java.util.HashMap` 类。
 

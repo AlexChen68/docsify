@@ -7,7 +7,7 @@ Linux 能运行主要的 UNIX 工具软件、应用程序和网络协议。它�
 
 Linux一切皆文件，只有一个顶级目录
 
-![linux文件系统目录](../../../images/devops/linux-fileSystem-contents.png)
+![linux文件系统目录](../../../public/images/devops/linux-fileSystem-contents.png)
 
 ## 环境变量
 
