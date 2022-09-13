@@ -9,7 +9,24 @@ Linux一切皆文件，只有一个顶级目录
 
 ![linux文件系统目录](../../../images/devops/linux-fileSystem-contents.png)
 
+## 环境变量
+
+### 查看环境变量
+
+```shell
+cat ~/.bash_profile
+```
+
+### 刷新环境变量
+
+```shell
+source ~/.bash_profile
+```
+
+
+
 ## 网络相关命令
+
 > TODO
 
 

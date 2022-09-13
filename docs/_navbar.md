@@ -1,7 +1,5 @@
 <!-- 导航栏配置 -->
 
-* [首页](/home)
-
 * [Java系列](/blog/java/basic/overview)
   * [Java基础知识](/blog/java/basic/overview)
   * [Java集合框架](/blog/java/collection/overview)

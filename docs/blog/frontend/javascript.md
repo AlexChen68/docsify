@@ -1,5 +1,3 @@
-> 本文截取自 [mozilla 官网](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-
 ## JavaScript 简介
 
 [JavaScript](https://developer.mozilla.org/zh-CN/docs/Glossary/JavaScript)（缩写：JS）是一门完备的动态编程语言。当应用于 [HTML](https://developer.mozilla.org/zh-CN/docs/Glossary/HTML) 文档时，可为网站提供动态交互特性。由布兰登·艾克（Brendan Eich，Mozilla 项目、Mozilla 基金会和 Mozilla 公司的联合创始人）发明。
@@ -18,7 +16,7 @@ JavaScript 在[Ecma International](https://www.ecma-international.org/)进行了
 
 目前大多数浏览器都支持 ES5.1 标准，ES6 
 
-## 快速入门
+## 语法和数据类型
 
 ### 引入 JavaScript
 
@@ -158,3 +156,115 @@ document.querySelector('html').addEventListener('click', () => {
   alert('别戳我，我怕疼。');
 });
 ```
+
+## 浏览器对象 BOM
+
+浏览器对象模型 (BOM) 使 JavaScript 有能力与浏览器"对话"。
+
+Window 对象是BOM中所有对象的核心，除了是BOM中所有对象的父对象外，还包含一些窗口控制函数。
+
+### Window 对象
+
+所有浏览器都支持 window 对象。它表示浏览器窗口。
+
+所有 JavaScript 全局对象、函数以及变量均自动成为 window 对象的成员。
+
+全局变量是 window 对象的属性。
+
+全局函数是 window 对象的方法。
+
+甚至 HTML DOM 的 document 也是 window 对象的属性之一：
+
+```javascript
+window.document.getElementById("header"); 
+```
+
+与此相同：
+
+```javascript
+document.getElementById("header");  
+```
+
+Window 中关于窗口的方法：
+
+- window.open() - 打开新窗口
+- window.close() - 关闭当前窗口
+- window.moveTo() - 移动当前窗口
+- window.resizeTo() - 调整当前窗口的尺寸
+
+### window.screen
+
+> window.screen 对象包含有关用户屏幕的信息，这些信息可以用来了解客户端硬件的基本配置。
+>
+
+- screen.availWidth - 可用的屏幕宽度
+- screen.availHeight - 可用的屏幕高度
+
+### window.location
+
+> window.location 对象用于获得当前页面的地址 (URL)，并把浏览器重定向到新的页面。
+>
+> 这种方法既可以用于具有onclick事件的标签，也可以用于满足某些条件进行跳转，特点是方便且灵活。
+
+- location.hostname 返回 web 主机的域名
+- location.pathname 返回当前页面的路径和文件名
+- location.port 返回 web 主机的端口 （80 或 443）
+- location.protocol 返回所使用的 web 协议（http:// 或 https://）
+
+### window.history
+
+> window.history 对象包含浏览器的历史。
+
+- history.back() - 与在浏览器点击后退按钮相同
+- history.forward() - 与在浏览器中点击向前按钮向前相同
+
+### window.navigator
+
+> window.navigator 对象包含有关访问者浏览器的信息。
+
+**警告**：来自 navigator 对象的信息具有误导性，**不**应该被用于检测浏览器版本，这是因为：
+
+- navigator 数据可被浏览器使用者更改
+- 一些浏览器对测试站点会识别错误
+- 浏览器无法报告晚于浏览器发布的新操作系统
+
+### JavaScript 弹窗
+
+可以在 JavaScript 中创建三种消息框：警告框、确认框、提示框。
+
+**警告框**
+
+警告框经常用于确保用户可以得到某些信息。当警告框出现后，用户需要点击确定按钮才能继续进行操作。
+
+```
+window.alert("sometext");
+```
+
+**确认框**
+
+确认框通常用于验证是否接受用户操作。当确认卡弹出时，用户可以点击 "确认" 或者 "取消" 来确定用户操作。当你点击 "确认", 确认框返回 true， 如果点击 "取消", 确认框返回 false。
+
+```
+window.confirm("sometext");
+```
+
+**提示框**
+
+提示框经常用于提示用户在进入页面前输入某个值。当提示框出现后，用户需要输入某个值，然后点击确认或取消按钮才能继续操纵。如果用户点击确认，那么返回值为输入的值。如果用户点击取消，那么返回值为 null。
+
+```
+window.prompt("sometext","defaultvalue");
+```
+
+## 文档对象 DOM
+
+
+
+
+
+## 参考资料
+
+[JavaScript MDN 官方文档](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript)
+
+[JavaScript教程 W3Cschool](https://www.w3cschool.cn/javascript/)
+

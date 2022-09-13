@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="https://unpkg.com/docsify-plugin-toc@1.3.1/dist/light.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
-  <!--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">-->
+  <!-- <link rel="stylesheet" href="https://unpkg.com/docsify-plugin-toc@1.3.1/dist/light.css"> -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   <link rel="stylesheet" href="themes/prism-one-dark.css">
   <style>
     :root {
@@ -21,16 +21,19 @@
   <div id="app">正在努力加载中</div>
   <script>
     window.$docsify = {
-      // name: '<img src="/images/icon/technology.svg">',//文档标题，会显示在侧边栏顶部
-      // coverpage: false, //是否开启封面
-      homepage: 'home.md',
+      // 封面和首页
+      name: '<h3>AlexChen`s Blog</h3>', // 文档标题，会显示在侧边栏顶部
+      nameLink: '/', // 点击文档标题后跳转的链接地址
+      homepage: '/blog/java/basic/overview.md', // 封面页面
+      coverpage: true, // 是否开启封面
       themeColor: '#3F51B5',
-      nameLink: '/',//点击文档标题后跳转的链接地址
-      // repo: 'AlexChen68',
+      repo: 'AlexChen68',
+      // 侧边栏设置
       loadSidebar: true,
       // hideSidebar: true,
       subMaxLevel: 0,//生成目录的最大层级
       autoHeader: false,
+      // 导航栏
       loadNavbar: true,//加载自定义导航栏
       mergeNavbar: true,
       auto2top: true,//切换页面后是否自动跳转到页面顶部
@@ -47,9 +50,9 @@
         tabHeadings: true
       },
       copyCode: {
-        buttonText : '复制至剪切板',
-        errorText  : '复制错误',
-        successText: '复制成功'
+        buttonText : 'Copy',
+        errorText  : 'Error',
+        successText: 'Copied'
       },
       scrollToTop: {
         auto: true,
@@ -60,36 +63,36 @@
         height: 45,
         offset: 500
       },
-      toc: {
-        tocMaxLevel: 5,
-        target: 'h2, h3, h4, h5, h6'
-      },
+      // toc: {
+      //   tocMaxLevel: 5,
+      //   target: 'h2, h3, h4, h5, h6'
+      // },
       //页脚配置
-      customFooter: {
-        visible: false,
-        textLinks: [
-          {
-            tagType: 'a',
-            text: '未备案',
-            link: 'https://beian.miit.gov.cn/',
-            style: {
-              color: 'green'
-            }
-          },
-          {
-            tagType: 'a',
-            text: 'Copyright@AlexChen',
-            link: 'https://www.alexchen.tech',
-            style: {
-              color: 'green'
-            }
-          },
-          {
-            tagType: 'text',
-            text: '©2022/07/19'
-          }
-        ]
-      }
+      // customFooter: {
+      //   visible: false,
+      //   textLinks: [
+      //     {
+      //       tagType: 'a',
+      //       text: '未备案',
+      //       link: 'https://beian.miit.gov.cn/',
+      //       style: {
+      //         color: 'green'
+      //       }
+      //     },
+      //     {
+      //       tagType: 'a',
+      //       text: 'Copyright@AlexChen',
+      //       link: 'https://www.alexchen.tech',
+      //       style: {
+      //         color: 'green'
+      //       }
+      //     },
+      //     {
+      //       tagType: 'text',
+      //       text: '©2022/07/19'
+      //     }
+      //   ]
+      // }
     }
   </script>
   <!-- Docsify4.12.2 -->
@@ -111,9 +114,9 @@
 
   <!-- 回到顶部、页脚 -->
   <script src="https://unpkg.com/@zhg-x/docsify-plugins@1.0.2/src/scroll-to-top.js"></script>
-  <script src="https://unpkg.com/@zhg-x/docsify-plugins@1.2.2/src/custom-footer.js"></script>
+  <!-- <script src="https://unpkg.com/@zhg-x/docsify-plugins@1.2.2/src/custom-footer.js"></script> -->
   <!-- 图片缩放 -->
   <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
-  <script src="https://unpkg.com/docsify-plugin-toc@1.3.1/dist/docsify-plugin-toc.min.js"></script>
+  <!-- <script src="https://unpkg.com/docsify-plugin-toc@1.3.1/dist/docsify-plugin-toc.min.js"></script> -->
 </body>
 </html>
