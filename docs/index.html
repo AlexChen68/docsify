@@ -22,17 +22,19 @@
   <script>
     window.$docsify = {
       // 封面和首页
-      name: '<h3>AlexChen\'s Blog</h3>', // 文档标题，会显示在侧边栏顶部
+      name: '🏡', // 文档标题，会显示在侧边栏顶部
       nameLink: '/', // 点击文档标题后跳转的链接地址
-      homepage: '/blog/java/basic/overview.md', // 封面页面
+      homepage: '/index.md', // 首页
       coverpage: true, // 是否开启封面
       themeColor: '#3F51B5',
       repo: 'AlexChen68',
+
       // 侧边栏设置
       loadSidebar: true,
       // hideSidebar: true,
-      subMaxLevel: 0,//生成目录的最大层级
-      autoHeader: false,
+      subMaxLevel: 2, //生成目录的最大层级
+      autoHeader: false, // 同时设置 loadSidebar 和 autoHeader 后，可以根据 _sidebar.md 的内容自动为每个页面增加标题
+      
       // 导航栏
       loadNavbar: true,//加载自定义导航栏
       mergeNavbar: true,
@@ -42,6 +44,8 @@
       relativePath: true,//启用相对路径
       notFoundPage: true,
       executeScript: true,//执行文档里的 script 标签里的脚本，只执行第一个 script
+      
+      // 分页
       tabs: {
         persist    : true,
         sync       : true,
